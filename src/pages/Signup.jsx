@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+
 import styles from '../styles/Signup.module.css';
 import {IoIosArrowBack} from 'react-icons/io';
 import {AiFillCaretDown} from 'react-icons/ai';
+
 export default function Signup() {
     const [id,setId]=useState('');
     const [password,setPassword]=useState('');
@@ -28,7 +31,7 @@ export default function Signup() {
     return (
         <div>
             <div className={styles.top}>
-                <IoIosArrowBack onClick={handleArrow}/>
+                <Link to='/'><IoIosArrowBack onClick={handleArrow}/></Link>
                 <div>회원가입</div>
             </div>
             <div className={styles.wrap}>
