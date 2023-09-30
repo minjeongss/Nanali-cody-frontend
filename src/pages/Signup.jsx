@@ -3,6 +3,7 @@ import styles from '../styles/Signup.module.css';
 import {IoIosArrowBack} from 'react-icons/io';
 import {AiFillCaretDown} from 'react-icons/ai';
 import { useNavigate, useParams } from 'react-router-dom';
+
 export default function Signup() {
     const [id,setId]=useState('');
     const [password,setPassword]=useState('');
@@ -11,7 +12,12 @@ export default function Signup() {
     const [age,setAge]=useState();
     const [gender,setgender]=useState();
     const [style,setStyle]=useState();
-
+    const list=[
+        /^[a-zA-z0-9]{4,12}$/, //id
+        /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/, //password
+        /^[A-Za-z0-9_]+[A-Za-z0-9]*[@]{1}[A-Za-z0-9]+[A-Za-z0-9]*[.]{1}[A-Za-z]{1,3}$/, //email
+    
+    ];
     const navigate=useNavigate();
 
     //url 값 받아오는 방법::추후에 사용
@@ -44,6 +50,15 @@ export default function Signup() {
     }
     const handleSubmit=(e)=>{
         e.preventDefault();
+        if(id===''){alert('아이디를 입력해주세요.'); window.location.reload();}
+        else if(password===''){alert('비밀번호를 입력해주세요.'); window.location.reload();}
+        else if(password.length<6){alert('비밀번호 6자리 이상 입력해주세요!'); window.location.reload();}
+        else if(nickname===''){alert('닉네임을 입력해주세요'); window.location.reload();}
+        else if(email===''){alert('이메일을 입력해주세요.'); window.location.reload();}
+        else if(!email.match(list[2])){alert('올바른 이메일 형식을 유지해주세요.'); window.location.reload();}
+        else{
+            navigate(`/`);
+        }
     }
     return (
         <div>
@@ -58,7 +73,7 @@ export default function Signup() {
             <div className={styles.wrap}>
                 <div className={styles.password}>
                     <div>비밀번호</div>
-                    <div className={styles.passwordRight}>*6자리이상 입력해주세요.</div>
+                    <div className={styles.passwordRight}>*6자리 이상 입력해주세요.</div>
                 </div>
                 <input type="password" placeholder='비밀번호를 입력해주세요.' onChange={handlePassword}/>
             </div>
