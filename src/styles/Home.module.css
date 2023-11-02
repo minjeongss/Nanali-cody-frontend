@@ -1,0 +1,11 @@
+body{
+    background-image: linear-gradient(to bottom,var(--color-skyblue-back),var(--color-white));
+    color:var(--color-blue);
+}
+.location{
+    color:var(--color-darkblue);
+}
+.center{
+    background-color: var(--color-white);
+    border-radius: 10px;
+}

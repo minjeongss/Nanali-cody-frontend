@@ -1,0 +1,10 @@
+body{
+}
+.top{
+    background-color: var(--color-white);
+    border-radius: 20px;
+}
+.bottom{
+    background-color: var(--color-white);
+    border-radius: 20px;
+}
