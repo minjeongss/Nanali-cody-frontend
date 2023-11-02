@@ -1,0 +1,72 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css');
+
+* {font-family: Pretendard,'Noto Sans KR', sans-serif;}
+
+.login h1 {
+  color: black;
+  font-weight: 600;
+  font-size: 60px;
+  text-align: center;
+  margin-top: 147px;
+  margin-bottom: 21px;
+}
+
+p {
+  color: black;
+  font-weight: 500;
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 91px;
+ 
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input[type="id"],
+input[type="password"] {
+  padding-left:17px;
+  border: none;
+  border-radius: 10px;
+  width: 328px;
+  height: 52px;
+  font-size : 14px;
+  margin-bottom : 13px;
+}
+input[type="password"] {
+  margin-bottom: 48px;
+}
+
+button[type="findId"]{
+  background-color: #F5F5F5;
+  border:none;
+  text-align: right;
+  margin-left : 228px;
+  margin-bottom: 6px;
+  color: #929292;
+  cursor: pointer;
+}
+
+button[type="submit"],
+button[type="register"] {
+  background-color: white;
+  border: none;
+  border-radius: 10px;
+  align-items: center;
+  width: 345px;
+  font-size: 18px;
+  font-weight: 600;
+  height: 52px;
+  cursor: pointer;
+}
+
+button[type="submit"] {
+  margin-bottom: 91px;
+}
+
+button[type="register"] {
+  display : block;
+}

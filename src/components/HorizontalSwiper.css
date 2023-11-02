@@ -1,0 +1,14 @@
+.horizontalSwiper{
+    height: 101px;
+    margin-left: 24px;
+}
+.clothesType{
+    font-size: 18;
+    font-weight: 600;
+    text-align: left;
+}
+.clothesList{
+    display: flex;
+   
+    
+}

@@ -1,0 +1,35 @@
+.weather {
+    background-color: #FFFFFF;
+}
+
+.weatherbox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 28px;
+    margin-bottom: 54px;
+}
+
+.sunlight {
+    width: 68px;
+    height: 68px;
+    margin-right: 48px;
+    border-radius: 50%;
+    background-color: #F1F1F1;
+}
+.israining {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    background-color: #F1F1F1;
+}
+.temperature {
+    width: 68px;
+    height: 68px;
+    margin-left: 48px;
+    border-radius: 50%;
+    background-color: #F1F1F1;
+}
+.clothesbox{
+    height: 404px;
+}
