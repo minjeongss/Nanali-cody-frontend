@@ -3,10 +3,11 @@ import { Route,BrowserRouter,Routes } from "react-router-dom";
 import Login from "./pages/LoginPage.jsx";
 import MyPage from "./pages/MyPage.jsx";
 import Home from "./pages/Home.jsx";
-import Register from "./pages/Signup.jsx";
 import Weather from "./pages/WeatherPage.jsx";
 import Preference from "./pages/PreferencesPage.jsx";
 import Layout from "../src/components/Nav.jsx";
+import Signup from './pages/Signup.jsx';
+import Detail from './pages/Detail.jsx';
 
 function App() {
   return (
@@ -15,13 +16,14 @@ function App() {
         <Routes>//네비바 적용 페이지들
           <Route element={<Layout />}>
             <Route path="/home" element={<Home />} />
+            <Route path="/detail" element={<Detail />} />
             <Route path="/mypage" element={<MyPage />} />
             <Route path="/preference" element={<Preference />} />
             <Route path="/weather" element={<Weather />} />
             
           </Route>
           <Route path="/" element={<Login />} />
-          <Route path="/register" element={<Register />} />
+          <Route path="/signup" element={<Signup />} />
         </Routes>
       </div>
     </BrowserRouter>

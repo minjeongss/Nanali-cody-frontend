@@ -1,11 +1,66 @@
-body{
-    background-image: linear-gradient(to bottom,var(--color-skyblue-back),var(--color-white));
+.body{
+    background: linear-gradient(to bottom,var(--color-skyblue-back),var(--color-white));
     color:var(--color-blue);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.top{
+    display: flex;
+    flex-direction: row;
+}
+.topLeft{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.temperature{
+    background: linear-gradient(to bottom,var(--color-nany),var(--color-white));
+    font-size: 50px;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 .location{
     color:var(--color-darkblue);
 }
+.buttonImg{
+    background-color: var(--color-white);
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+}
+.buttonText{
+    background-color: var(--color-white);
+    width: 60px;
+    height: 40px;
+    padding: 5px;
+}
 .center{
+    /* position: relative; */
+}
+.centerButton{
+    /* position: absolute; */
+    display: flex;
+    flex-direction: row;
+    gap:10px;
+}
+.centerContent{
     background-color: var(--color-white);
     border-radius: 10px;
+    margin-top: 5px;
+}
+.centerTitle{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position:relative;
+}
+.centerTitleImg{
+    position: absolute;
+    right:9px; /*중앙정렬*/
+}
+.bottom{
+    
 }
