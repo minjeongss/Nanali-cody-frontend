@@ -1,10 +1,27 @@
-body{
+.body{
+    background-image: linear-gradient(
+        to bottom,
+        rgba(255,255,255,0.75) 50%,
+        rgba(255,255,255,1) 100%
+    ),url("../../public/assets/clothes.svg");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    display: flex;
+    flex-direction: column;
+}
+.arrow{
+    margin-right:auto; /*왼쪽 정렬*/
+    margin-top: 50px;
+    margin-bottom: 100px;
 }
 .top{
-    background-color: var(--color-white);
+    background-color: rgba(255,255,255,0.8);
     border-radius: 20px;
+    border-color: black;
 }
 .bottom{
-    background-color: var(--color-white);
+    background-color: var(--color-lightgrey);
     border-radius: 20px;
 }
