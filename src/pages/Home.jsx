@@ -1,20 +1,38 @@
 import React, { useState } from 'react';
 import styles from '../styles/Home.module.css';
+import {IoIosArrowForward} from 'react-icons/io';
+
 export default function Home() {
     // const [calendar,setCalendar]=useState([
     //     {}
     // ]);
     // const dateList=calendar.map((list)=><div></div>);
+    const [isDay,setIsDay]=useState(false);
+    const [rainPercent,setRainPercent]=useState(0);
+    const PrintUmbrella=()=>{
+        if(rainPercent===100){
+            return <img src={`${process.env.PUBLIC_URL}/assets/umbrella.svg`} alt="" />;
+        }
+        return null;
+    }
+    const [weather,setWeather]=useState("cloud");
+    const PrintWeather=()=>{
+        if(weather==="cloud"){
+           return <img src={`${process.env.PUBLIC_URL}/assets/cloud.svg`} alt="" />;
+        }
+        return null;
+    }
     return (
-        <div className={styles.body}>
+        // styles.body ${controlBackground?'day':'night'}
+        <div className={isDay?`${styles.bodyDay}`:`${styles.bodyNight}`}>
             <div className={styles.top}>
                 <div className={styles.topLeft}>
                     <div>10월 18일 수요일</div>
                     <div className={styles.temperature}>23°</div>
-                    <div className={styles.location}><button className={styles.buttonImg}><img src={`${process.env.PUBLIC_URL}/assets/location.svg`} alt="" /></button>인천, 대한민국</div>
-                    <div>강수확률2%</div>
+                    <div className={isDay?`${styles.locationDay}`:``}><button className={styles.buttonImg}><img src={`${process.env.PUBLIC_URL}/assets/location.svg`} alt="" /></button>인천, 대한민국</div>
+                    <div>강수확률2% {PrintUmbrella()}</div>
                 </div>
-                <div><img src={`${process.env.PUBLIC_URL}/assets/sunny.svg`} alt="" /></div>
+                <div>{PrintWeather()}</div>
             </div>
             <div className={styles.center}>
                 <div className={styles.centerButton}>
@@ -32,8 +50,10 @@ export default function Home() {
                 </div>
             </div>
             <div className={styles.bottom}>
-                <div>Today</div>
-                <div>화살표</div>
+                <div className={styles.bottomTitle}>
+                    <div>Today</div>
+                    <IoIosArrowForward />
+                </div>
                 <div>
                     {/*map weather*/}
                 </div>

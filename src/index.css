@@ -11,6 +11,10 @@
   --color-darkblue: #1E678F;
   --color-blue: #4282A4;
   --color-navy:#005989;
+  --color-purple-back:#3A1B4E;
+  --color-nany-back:#0F5881;
+  --color-grey-back:#DADADA;
+  --color-lightgrey:#D7D7D7;
 }
 
 * {
