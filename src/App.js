@@ -13,15 +13,15 @@ function App() {
   return (
     <BrowserRouter>
       <div className="app">
-        <Routes>//네비바 적용 페이지들
-          <Route element={<Layout />}>
-            <Route path="/home" element={<Home />} />
-            <Route path="/detail" element={<Detail />} />
-            <Route path="/mypage" element={<MyPage />} />
-            <Route path="/preference" element={<Preference />} />
-            <Route path="/weather" element={<Weather />} />
+        <Routes>
+          
+          <Route path="/home" element={<Home />} />
+          <Route path="/detail" element={<Detail />} />
+          <Route path="/mypage" element={<MyPage />} />
+          <Route path="/preference" element={<Preference />} />
+          <Route path="/weather" element={<Weather />} />
             
-          </Route>
+          
           <Route path="/" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
         </Routes>
