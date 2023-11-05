@@ -3,6 +3,7 @@ import styles from '../styles/Signup.module.css';
 import {IoIosArrowBack} from 'react-icons/io';
 import {AiFillCaretDown} from 'react-icons/ai';
 import { useNavigate, useParams } from 'react-router-dom';
+import ShowList from '../components/ShowList';
 
 export default function Signup() {
     const [id,setId]=useState('');
@@ -12,6 +13,8 @@ export default function Signup() {
     const [age,setAge]=useState();
     const [gender,setgender]=useState();
     const [style,setStyle]=useState();
+
+    const [isClickedAge,setIsClickedAge]=useState(false);
     const list=[
         /^[a-zA-z0-9]{4,12}$/, //id
         /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/, //password
@@ -40,13 +43,16 @@ export default function Signup() {
         setEmail(e.target.value);
     }
     const handleAge=()=>{
-
+        setIsClickedAge(true);
     }
     const handleGneder=()=>{
 
     }
     const handleStyle=()=>{
 
+    }
+    const PrintAge=()=>{
+        return <ShowList />
     }
     const handleSubmit=(e)=>{
         e.preventDefault();
@@ -85,12 +91,13 @@ export default function Signup() {
                 <div>이메일</div>
                 <input type="email" placeholder='이메일을 입력해주세요.' onChange={handleEmail}/>
             </div>
-            <div className={styles.wrap}>
+            <div className={isClickedAge?`styles.wrapLong`:`styles.wrap`}>
                 <div>나이</div>
                 <button className={styles.button} onClick={handleAge}>
                     나이를 선택해주세요.
                     <AiFillCaretDown className={styles.icon}/>
                 </button>
+                <div>{isClickedAge && PrintAge()}</div>
             </div>
             <div className={styles.wrap}>
                 <div>성별</div>

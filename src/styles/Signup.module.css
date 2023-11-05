@@ -11,12 +11,16 @@ div{
 .wrap{
     height: 100px;
 }
+.wrapLong{
+    height:200px;
+}
 .top{
     display: flex;
     flex-direction: row;
     align-items: center;
     font-size: 24px;
     height: 100px;
+    gap:10px;
 } 
 .password{
     display: flex;
@@ -42,8 +46,10 @@ input{
 input::placeholder{
     color:var(--color-darkgrey);
 }
-input[type="password"]{
+input[type="password"]{  /*타css 영향 받음*/
     background-color: var(--color-grey);
+    width: 345px;
+    padding:2px 2px 2px 12px;
 }
 button{
     width: 359px;
@@ -54,6 +60,7 @@ button{
     flex-direction: row;
     align-items: center;
     color: var(--color-darkgrey);
+    padding-left: 10px;
 }
 .icon{
     padding-left: 200px;
@@ -67,5 +74,5 @@ button[type='submit']{
     font-weight: bold;
     font-size: 18px;
     background-color:var(--color-skyblue)!important;
-    color:var(--color-white);
+    color:var(--color-white)!important;
 }
