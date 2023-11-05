@@ -2,24 +2,33 @@
 
 * {font-family: Pretendard,'Noto Sans KR', sans-serif;}
 
-.login h1 {
-  color: black;
-  font-weight: 600;
-  font-size: 60px;
-  text-align: center;
-  margin-top: 147px;
-  margin-bottom: 21px;
+.login{
+  background: linear-gradient(180deg, #BAE6FF 0%, rgba(209, 235, 247, 0.7) 41.98%, rgba(171, 230, 255, 0.3) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width:393px;
+    height:852px;
+
+}
+.logo1 {
+  margin-top: 157px;
+  margin-bottom: 4.82px;
+}
+.logo2 {
+  margin-bottom: 32px;
+  align-items: center;
 }
 
-p {
-  color: black;
+.paragraph {
+  color: var(--color-blue);
   font-weight: 500;
   font-size: 16px;
   text-align: center;
-  margin-bottom: 91px;
+  margin-bottom: 60px;
  
-}
-
+} 
 form {
   display: flex;
   flex-direction: column;
@@ -34,25 +43,38 @@ input[type="password"] {
   width: 328px;
   height: 52px;
   font-size : 14px;
+  background-color: var(--color-white);
   margin-bottom : 13px;
 }
 input[type="password"] {
   margin-bottom: 48px;
 }
-
-button[type="findId"]{
-  background-color: #F5F5F5;
-  border:none;
+.findId{
+  float:right;
   text-align: right;
-  margin-left : 228px;
+  background-color:transparent ;
+  font-size: 12px;
+  margin-left: 240px;
   margin-bottom: 6px;
+  font-weight: 400;
   color: #929292;
   cursor: pointer;
 }
 
-button[type="submit"],
+button[type="submit"]{
+  border: none;
+    border-radius: 10px;
+    align-items: center;
+    width: 345px;
+    font-size: 18px;
+    font-weight: 600;
+    height: 52px;
+    cursor: pointer;
+    color: var(--color-black)!important;
+    background-color: var(--color-white)!important;
+    margin-bottom: 91px;
+}
 button[type="register"] {
-  background-color: white;
   border: none;
   border-radius: 10px;
   align-items: center;
@@ -61,12 +83,17 @@ button[type="register"] {
   font-weight: 600;
   height: 52px;
   cursor: pointer;
+  color: white;
+  background-color: var(--color-skyblue);
+  display: block;
+  margin-bottom: 23px;
+}
+.nologin{
+  font-size: 14px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  margin-bottom: 64px;
+  font-weight: 400;
+  color: #929292;
 }
 
-button[type="submit"] {
-  margin-bottom: 91px;
-}
-
-button[type="register"] {
-  display : block;
-}
