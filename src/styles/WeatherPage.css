@@ -16,18 +16,40 @@
 }
 
 .sun {
-
+display: flex;
+flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 .rain {
+display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     margin-left: 70px;
 }
 .thermometer {
+    display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     margin-left: 70px;
 }
+.weatherparagraph{
+    margin-top: 43px;
+    margin-bottom: 42px;
+    color:#1E678F;
+    font-weight: 600px;
+}
 .clothesbox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background-color: white;
-    margin-top: 42px;
     height: 918px;
     border-radius: 40px;
     width: 393px;
+}
+.Swiper_1 {
+    margin-top:37px;
 }

@@ -1,22 +1,24 @@
-
 .wrapper {
-    position: relative;
+    position: absolute;
     left: 50%; /* Move to the horizontal center of the parent */
     transform: translateX(-50%); /* Correct for the element's width */
     width:393px;
+    top:780px;
     text-align: center;
   }
   
   /* nav태그 아래의 자식들을 수평정렬하기 위한 설정 */
   .nav {
-    background-color:#F1F1F1;
+    background-color:#FFFFFF;
     display: flex;
     height: 83px;
- 
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
     bottom:0;
     justify-content: center;
     
   }
+  
   /* nav태그 아래의 div태그들을 수평정렬 및 세로길이 설정 */
   .nav-link {
     /* 수평정렬, 5개의 button을 각각 131px width만큼 할당 */
@@ -33,6 +35,5 @@
   .nav-item {
     &.active{
       filter:invert(90%) sepia(1%) saturate(5%) hue-rotate(304deg) brightness(100%) contrast(102%);
-
     }
   }

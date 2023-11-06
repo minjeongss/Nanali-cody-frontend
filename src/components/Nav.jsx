@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import {Outlet} from "react-router"
 import "./Nav.css";
 import { Link } from "react-router-dom";
 const Nav = ()=>{
@@ -7,12 +6,11 @@ const Nav = ()=>{
     const [activeNav, setActiveNav] = useState(1);
     return (
             <div className = "wrapper">
-                <Outlet />
                  <nav className="nav">
                     <Link to="/weather" className="nav-link" onClick={() => setActiveNav(1)}>
                         <div className ="navIcon1">
                             <img alt="weather" 
-                                src="img/weather.png"
+                                src={`${process.env.PUBLIC_URL}/assets/nav_weather.svg`} 
                                 className={activeNav === 1 ? "nav-item active" : "nav-item"}
                             />
                         </div>
@@ -20,7 +18,7 @@ const Nav = ()=>{
                     <Link to="/home" className="nav-link" onClick={() => setActiveNav(2)}>
                         <div className ="navIcon2">
                             <img alt="home" 
-                                src="img/home.png" 
+                               src={`${process.env.PUBLIC_URL}/assets/nav_home.svg`} 
                                 className={activeNav === 2 ? "nav-item active" : "nav-item"}
                             />        
                         </div>
@@ -28,7 +26,7 @@ const Nav = ()=>{
                     <Link to="/mypage" className="nav-link" onClick={() => setActiveNav(3)}>
                         <div className ="navIcon3">
                             <img alt="mypage" 
-                                src="img/mypage.png" 
+                                src={`${process.env.PUBLIC_URL}/assets/nav_mypage.svg`} 
                                 className={activeNav === 3 ? "nav-item active" : "nav-item"}
                             />
                         </div>
