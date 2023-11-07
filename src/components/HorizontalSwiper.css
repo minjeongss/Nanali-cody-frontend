@@ -1,14 +1,14 @@
 .horizontalSwiper{
-    height: 101px;
-    margin-left: 24px;
+    height: 160px;
+    width:382px;
+    margin-top: 19px;
 }
 .clothesType{
+    margin-left: 22px;
     font-size: 18;
     font-weight: 600;
     text-align: left;
 }
 .clothesList{
     display: flex;
-   
-    
 }

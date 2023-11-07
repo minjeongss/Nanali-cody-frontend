@@ -1,4 +1,73 @@
 .mypage{
-    background-color: #FFFFFF;
-    height: 769px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background: linear-gradient(180deg, #BAE6FF 0%, rgba(209, 235, 247, 0.7) 41.98%, rgba(171, 230, 255, 0.3) 100%);
+    width: 393px;
+    height: 852px;
+}
+.preferencebutton{
+    margin-top: 44px;
+    margin-left:339px;
+    margin-right:24px;
+}
+
+.profilephoto{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: #FFFFFF;
+    width: 152px;
+    height: 152px;
+    border-radius: 50%;
+    box-shadow: 4px 4px 4px rgba(103, 160, 205, 0.1);
+}
+.profile{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 100px;
+    height:208px;
+    width:152px;
+    z-index: 3;
+}
+.nickname{
+    font-weight: 600px;
+    font-size:24px;
+}
+.email{
+    font-weight: 400px;
+    font-size: 14px;
+    color:#9A9A9A;
+}
+.coordibox{
+    border-radius: 40px;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    width:393px;
+    height:646px;
+    top:206px;
+    z-index: 0;
+}
+.selector{
+    margin-left: 82px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 48px;
+    width: 230px;
+    padding-top:119px;
+}
+.v-line {
+    margin-left: 66px;
+    border-left: medium solid #C3D5DF;
+    height: 33px;
+}
+.clothingtabbutton{
+    margin-left: 68px;
 }

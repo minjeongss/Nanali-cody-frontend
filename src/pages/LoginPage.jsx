@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import '../styles/LoginPage.css';
-
+import {Link} from  'react-router-dom';
 function Login() {
     const [id, setid] = useState('');
     const [password, setPassword] = useState('');
@@ -30,10 +30,15 @@ function Login() {
       
         <form onSubmit={handleLogin} className="form">
           <input type="id" value={id} onChange={(e) => setid(e.target.value)} placeholder="아이디" />
-          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="비밀번호" />
-          <button type="submit">로그인</button>
-          <button type="register" onClick={handleRegister}>회원가입하기</button>
-          <p className='nologin' onClick={handleWithoutLogin}>회원가입 없이 둘러보기</p>
+          <input type="passwordl" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="비밀번호" />
+          <button type="login">로그인</button>
+          <Link to ="/signup"style={{ textDecoration: "none" }}>
+              <button type="signup">회원가입하기</button>
+          </Link>
+          <Link to ="/home"style={{ textDecoration: "none" }}>
+              <p className='nologin' onClick={handleWithoutLogin}>회원가입 없이 둘러보기</p>
+          </Link>
+          
         </form>
       </div>
     );
