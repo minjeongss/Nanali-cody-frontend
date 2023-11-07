@@ -9,6 +9,19 @@
 .preferencebutton{
     margin-top: 44px;
     margin-left:339px;
+    margin-right:24px;
+}
+
+.profilephoto{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: #FFFFFF;
+    width: 152px;
+    height: 152px;
+    border-radius: 50%;
+    box-shadow: 4px 4px 4px rgba(103, 160, 205, 0.1);
 }
 .profile{
     position: absolute;

@@ -1,34 +1,74 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import "./Nav.css";
 import { Link } from "react-router-dom";
+function ImageTransformationWeather() {
+  const [imageURL, setImageURL] = useState(`${process.env.PUBLIC_URL}/assets/nav_weather_unclicked.svg`);
+
+  useEffect(() => {
+    // 특정 주소에 도달할 때 이미지 URL을 변경합니다.
+    if (window.location.pathname === '/weather') {
+      setImageURL(`${process.env.PUBLIC_URL}/assets/nav_weather.svg`);
+    }
+  }, []);
+
+  return (
+    <div>
+      <img src={imageURL} alt="이미지" />
+    </div>
+  );
+}
+function ImageTransformationHome() {
+  const [imageURL, setImageURL] = useState(`${process.env.PUBLIC_URL}/assets/nav_home_unclicked.svg`);
+
+  useEffect(() => {
+    // 특정 주소에 도달할 때 이미지 URL을 변경합니다.
+    if (window.location.pathname === '/home') {
+      setImageURL(`${process.env.PUBLIC_URL}/assets/nav_home.svg`);
+    }
+  }, []);
+
+  return (
+    <div>
+      <img src={imageURL} alt="이미지" />
+    </div>
+  );
+}
+function ImageTransformationMypage() {
+  const [imageURL, setImageURL] = useState(`${process.env.PUBLIC_URL}/assets/nav_mypage_unclicked.svg`);
+
+  useEffect(() => {
+    // 특정 주소에 도달할 때 이미지 URL을 변경합니다.
+    if (window.location.pathname === '/mypage') {
+      setImageURL(`${process.env.PUBLIC_URL}/assets/nav_mypage.svg`);
+    }
+  }, []);
+
+  return (
+    <div>
+      <img src={imageURL} alt="이미지" />
+    </div>
+  );
+}
+
 const Nav = ()=>{
     // 현재 선택된 아이콘을 관리하는 state
     const [activeNav, setActiveNav] = useState(1);
     return (
             <div className = "wrapper">
                  <nav className="nav">
-                    <Link to="/weather" className="nav-link" onClick={() => setActiveNav(1)}>
+                    <Link to="/weather" className="nav-link">
                         <div className ="navIcon1">
-                            <img alt="weather" 
-                                src={`${process.env.PUBLIC_URL}/assets/nav_weather.svg`} 
-                                className={activeNav === 1 ? "nav-item active" : "nav-item"}
-                            />
+                            <ImageTransformationWeather />
                         </div>
                     </Link>
-                    <Link to="/home" className="nav-link" onClick={() => setActiveNav(2)}>
+                    <Link to="/home" className="nav-link">
                         <div className ="navIcon2">
-                            <img alt="home" 
-                               src={`${process.env.PUBLIC_URL}/assets/nav_home.svg`} 
-                                className={activeNav === 2 ? "nav-item active" : "nav-item"}
-                            />        
+                           <ImageTransformationHome />  
                         </div>
                     </Link>
-                    <Link to="/mypage" className="nav-link" onClick={() => setActiveNav(3)}>
+                    <Link to="/mypage" className="nav-link">
                         <div className ="navIcon3">
-                            <img alt="mypage" 
-                                src={`${process.env.PUBLIC_URL}/assets/nav_mypage.svg`} 
-                                className={activeNav === 3 ? "nav-item active" : "nav-item"}
-                            />
+                            <ImageTransformationMypage />  
                         </div>
                     </Link>
                 </nav>

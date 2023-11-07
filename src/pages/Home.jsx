@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styles from '../styles/Home.module.css';
 import {IoIosArrowForward} from 'react-icons/io';
+import Nav from '../components/Nav';
 
 export default function Home() {
     // const [calendar,setCalendar]=useState([
@@ -58,6 +59,7 @@ export default function Home() {
                     {/*map weather*/}
                 </div>
             </div>
+            <Nav/>
         </div>
     );
 }
