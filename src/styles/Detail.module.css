@@ -3,7 +3,7 @@
         to bottom,
         rgba(255,255,255,0.75) 50%,
         rgba(255,255,255,1) 100%
-    ),url("../../public/assets/clothes.svg");
+    ),url("../../public/assets/clothes2.svg");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -14,14 +14,42 @@
 .arrow{
     margin-right:auto; /*왼쪽 정렬*/
     margin-top: 50px;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
 }
 .top{
     background-color: rgba(255,255,255,0.8);
     border-radius: 20px;
     border-color: black;
+
+    width: 315px;
+    height: 293px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    margin-bottom: 30px;
+}
+.clothes{
+    width: 248px;
+    height: 218px;
 }
 .bottom{
     background-color: var(--color-lightgrey);
     border-radius: 20px;
+    width: 146px;
+    height: 152px;
+
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.clothesDetail{
+    width: 146px;
+}
+.heart{
+    position: absolute;
+    right: 10px;
+    top: 10px;
 }
