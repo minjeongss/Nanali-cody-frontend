@@ -7,7 +7,8 @@ export default function Home() {
     //     {}
     // ]);
     // const dateList=calendar.map((list)=><div></div>);
-    const [isDay,setIsDay]=useState(false);
+    const [isDay,setIsDay]=useState(true);
+    const [isRainy,setIsRainy]=useState(false);
     const [rainPercent,setRainPercent]=useState(0);
     const PrintUmbrella=()=>{
         if(rainPercent===100){
@@ -41,10 +42,8 @@ export default function Home() {
                     <button className={styles.buttonImg}><img src={`${process.env.PUBLIC_URL}/assets/calendar.svg`} alt="" /></button>
                 </div>
                 <div className={styles.centerContent}>
-                    <div className={styles.centerTitle}>
-                        <div>오늘은 이 옷 어때요?</div>
-                        <img className={styles.centerTitleImg} src={`${process.env.PUBLIC_URL}/assets/reset.svg`} alt="" />
-                    </div>
+                    <div>오늘은 이 옷 어때요?</div>
+                    <img className={styles.centerTitleImg} src={`${process.env.PUBLIC_URL}/assets/reset.svg`} alt="" />
                     <div><img src={`${process.env.PUBLIC_URL}/assets/clothes.svg`} alt="" /></div>
                     <div>옷 정보</div>
                 </div>
