@@ -1,25 +1,34 @@
 .bodyDay{
-    background: linear-gradient(to bottom,var(--color-skyblue-back),var(--color-white));
+    background: linear-gradient(to bottom,rgba(185,229,253,1),rgba(209,235,247,0.7),rgba(228,247,255,0));
     color:var(--color-blue);
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-size:16px;
+    width:393px;
 }
 .bodyNight{
-    background: linear-gradient(var(--color-purple-back),var(--color-nany-back),var(--color-grey-back));
+    background: linear-gradient(rgba(58,27,78,1),rgba(15,88,119,0.7),rgba(218,218,218,0.5));
     color:var(--color-lightgrey);
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-size:16px;
+    width:393px;
 }
 .top{
     display: flex;
     flex-direction: row;
+    gap:20px;
+    margin-bottom: 30px;
 }
 .topLeft{
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+.date,.rainyPercent{
+    font-size:14px;
 }
 .temperature{
     background: linear-gradient(to bottom,var(--color-nany),var(--color-white));
@@ -31,27 +40,40 @@
 .locationDay{
     color:var(--color-darkblue);
 }
+.imgWeather{
+    width: 150px;
+}
 
+.buttonImgSmall{
+    background-color: var(--color-white);
+    width: 28px;
+    height: 28px;
+}
 .buttonImg{
     background-color: var(--color-white);
     width: 40px;
-    height: 40px;
-    padding: 5px;
+    height: 30px;
 }
-.buttonText{
+.buttonSex{
     background-color: var(--color-white);
+    color:var(--color-darkblue);
     width: 60px;
-    height: 40px;
-    padding: 5px;
+    height: 30px;
+    margin-left: auto;
+}
+.buttonStyle{
+    background-color: var(--color-white);
+    color:var(--color-darkblue);
+    width: 60px;
+    height: 30px;
 }
 .center{
-    /* position: relative; */
+    
 }
 .centerButton{
-    /* position: absolute; */
     display: flex;
     flex-direction: row;
-    gap:10px;
+    gap:5px;
 }
 .centerContent{
     position: relative; /*부모*/
@@ -65,15 +87,16 @@
     margin-bottom: 20px;
     padding:5px;
 }
-.centerTitleImg{
+.imgCenterTitle{
     position: absolute;
     margin-left:200px;
 }
 .bottom{
-
 }
 .bottomTitle{
     display: flex;
     flex-direction: row;
-    gap:250px;
+    gap:200px;
+
+    margin-bottom: 10px;
 }
