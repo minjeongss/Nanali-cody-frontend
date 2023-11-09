@@ -1,42 +1,38 @@
-import React, { useState } from "react";
+import React, { useState,useRef,useEffect } from "react";
 import Clothes from "./Clothes";
 import "./HorizontalSwiper.css";
 
 
-const HorizontalSwiper = ({ clothes, type }) => {
-  const [slidePx, setSlidePx] = useState(0);
+const HorizontalSwiper = ({type, items}) => {
+  const containerRef = useRef(null);
+  const [scrollX, setScrollX] = useState(0);
 
-  const toPrev = () => {
-    slidePx < 0 && setSlidePx(slidePx + 101);
+  const handleScroll = () => {
+    if (containerRef.current) {
+      setScrollX(containerRef.current.scrollLeft);
+
+      // Check if the user has scrolled to the right end of the list
+      if (containerRef.current.scrollLeft + containerRef.current.clientWidth >= containerRef.current.scrollWidth) {
+        // Implement logic to add new items to the end of the list
+        // For example, you can concatenate more items to the existing `items` array.
+      }
+    }
   };
 
-  const toNext = () => {
-    slidePx > -4125 && setSlidePx(slidePx - 101);
-  };
-
-  if (!clothes) return null; // Return null if 'clothes' is not defined.
 
   return (
-    <div className="horizontalSwiper">
+    <div 
+      className="horizontalSwiper"
+      onScroll={handleScroll}
+      ref={containerRef}
+     >
       <p className="clothesType">{type.name}</p>
-      <ul className="clothesList" style={{ transform: `translateX(${slidePx}px)` }}>
-        {clothes.map((clothing) => (
-          <Clothes key={clothing.id} clothes={clothing} />
+      <div className="clothesList">
+          {items&&items.map((item, index) => (
+          <div key={index} className="list-item">
+            <img src={item.imageSrc} alt={item.title}/>
+          </div>
         ))}
-      </ul>
-      <div
-        className="prevBtn"
-        onClick={toPrev}
-        style={{ display: slidePx === 0 ? "none" : "" }}
-      >
-        <i className="fa-solid fa-chevron-left" />
-      </div>
-      <div
-        className="nextBtn"
-        onClick={toNext}
-        style={{ display: slidePx === -303 ? "none" : "" }}
-      >
-        <i className="fa-solid fa-chevron-right" />
       </div>
     </div>
   );

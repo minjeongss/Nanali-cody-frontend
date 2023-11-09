@@ -6,7 +6,9 @@ import Nav from '../components/Nav';
 function MyPage() {
     const [nickname, setNickname] = useState('');
     const [email, setEmail] = useState('');
+    const [activeTab, setActiveTab] = useState('coordi'); // Default to coordi tab
 
+    
     useEffect(() => {
         // 실제로는 API 호출을 수행해야 합니다. 이 예제에서는 더미 데이터를 사용합니다.
         // 아래의 fetchUserInfo 함수를 API 호출로 대체해야 합니다.
@@ -26,6 +28,9 @@ function MyPage() {
         setNickname(dummyData.nickname);
         setEmail(dummyData.email);
     };
+    const handleTabClick = (tab) => {
+        setActiveTab(tab);
+    };
 
     return (
         <div className="mypage">
@@ -41,14 +46,23 @@ function MyPage() {
             </div>
             <div className='coordibox'>
                 <div className='selector'>
-                    <div className='coorditabbutton'>
+                    <div className={`coorditabbutton ${activeTab === 'coordi' ? 'active' : ''}`}
+                        onClick={() => handleTabClick('coordi')}
+                    >
                         <img src={`${process.env.PUBLIC_URL}/assets/coordi.svg`} alt="Preference" />
                     </div>
                     <div className='v-line'></div>
-                    <div className='clothingtabbutton'>
+                    <div className={`clothingtabbutton ${activeTab === 'clothing' ? 'active' : ''}`}
+                        onClick={() => handleTabClick('clothing')}
+                    >
                         <img src={`${process.env.PUBLIC_URL}/assets/clothing.svg`} alt="Preference" />
-                    </div>  
+                    </div> 
                 </div>
+            </div>
+             <div className='tabcontent'>
+                {/* Render content based on active tab */}
+                {activeTab === 'coordi' && <div>Content for Coordi Tab</div>}
+                {activeTab === 'clothing' && <div>Content for Clothing Tab</div>}
             </div>
             <Nav />
         </div>

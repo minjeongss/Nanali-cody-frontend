@@ -6,26 +6,13 @@ import HSwiper from '../components/HorizontalSwiper';
 
 
 const exampleClothes = [
-  {
-    id: 1,
-    name: "T-Shirt",
-    imageUrl: "tshirt.jpg",
-  },
-  {
-    id: 2,
-    name: "Jeans",
-    imageUrl: "jeans.jpg",
-  },
-  {
-    id: 3,
-    name: "Sweater",
-    imageUrl: "sweater.jpg",
-  },
-  {
-    id: 4,
-    name: "Jacket",
-    imageUrl: "jacket.jpg",
-  },
+  { imageSrc: 'image1.jpg', title: 'Item 1' },
+  { imageSrc: 'image2.jpg', title: 'Item 2' },
+  { imageSrc: 'image3.jpg', title: 'Item 3' },
+  { imageSrc: 'image1.jpg', title: 'Item 1' },
+  { imageSrc: 'image2.jpg', title: 'Item 2' },
+  { imageSrc: 'image3.jpg', title: 'Item 3' },
+  
   // 더 많은 의류 항목을 추가할 수 있습니다.
 ];
 function Weather(){
@@ -102,10 +89,10 @@ function Weather(){
                 </div>
                 <div className="weatherparagraph">멘트</div>
                 <div className="clothesbox">
-                    <HSwiper className="Swiper_1" clothes={exampleClothes} type={top} />
-                    <HSwiper className="Swiper_2" clothes={exampleClothes} type={pants} />
-                    <HSwiper className="Swiper_3" clothes={exampleClothes} type={outer} />
-                    <HSwiper className="Swiper_4" clothes={exampleClothes} type={shoes} />
+                    <HSwiper className="Swiper_1" items={exampleClothes} type={top} visibleItems={4}/>
+                    <HSwiper className="Swiper_2" items={exampleClothes} type={pants} visibleItems={4} />
+                    <HSwiper className="Swiper_3" items={exampleClothes} type={outer} visibleItems={4}/>
+                    <HSwiper className="Swiper_4" items={exampleClothes} type={shoes} visibleItems={4} />
                 </div>
                 <Nav/>
             </div>

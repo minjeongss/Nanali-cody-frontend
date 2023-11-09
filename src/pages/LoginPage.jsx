@@ -25,8 +25,8 @@ function Login() {
       <div className="login">
         <img className='logo1' src={`${process.env.PUBLIC_URL}/assets/Union.svg`} alt="" />
         <img className='logo2' src={`${process.env.PUBLIC_URL}/assets/로고_1.svg`} alt="" />
-        <p className='paragraph'>날씨별 옷차림이 고민되는 당신에게</p>
-        <p className="findId" onClick={handleFindId}>아이디 / 비밀번호 찾기</p>
+        <div className='paragraph'>날씨별 옷차림이 고민되는 당신에게</div>
+        <div className="findId" onClick={handleFindId}>아이디 / 비밀번호 찾기</div>
       
         <form onSubmit={handleLogin} className="form">
           <input type="id" value={id} onChange={(e) => setid(e.target.value)} placeholder="아이디" />
@@ -36,9 +36,8 @@ function Login() {
               <button type="signup">회원가입하기</button>
           </Link>
           <Link to ="/home"style={{ textDecoration: "none" }}>
-              <p className='nologin' onClick={handleWithoutLogin}>회원가입 없이 둘러보기</p>
+              <div className='nologin' onClick={handleWithoutLogin}>회원가입 없이 둘러보기</div>
           </Link>
-          
         </form>
       </div>
     );
