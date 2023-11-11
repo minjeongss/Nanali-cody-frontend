@@ -1,23 +1,56 @@
 import React, { useState,useRef,useEffect } from "react";
-import Clothes from "./Clothes";
 import "./HorizontalSwiper.css";
 
 
 const HorizontalSwiper = ({type, items}) => {
   const containerRef = useRef(null);
-  const [scrollX, setScrollX] = useState(0);
+   const [scrollPosition, setScrollPosition] = useState(0);
+  const [content, setContent] = useState([]);
+
+  useEffect(() => {
+    // 초기 콘텐츠 로딩 또는 API 호출 등을 수행할 수 있습니다.
+    // 여기서는 간단한 더미 데이터를 사용합니다.
+    const initialContent = Array.from({ length: 4 }, (_, index) => (
+      <div key={index} className="content-item">
+        <img
+          src={`https://via.placeholder.com/120x120?text=Image${index + 1}`}
+          alt={`Image ${index + 1}`}
+        />
+      </div>
+    ));
+    setContent(initialContent);
+  }, []);
 
   const handleScroll = () => {
-    if (containerRef.current) {
-      setScrollX(containerRef.current.scrollLeft);
+    const container = containerRef.current;
 
-      // Check if the user has scrolled to the right end of the list
-      if (containerRef.current.scrollLeft + containerRef.current.clientWidth >= containerRef.current.scrollWidth) {
-        // Implement logic to add new items to the end of the list
-        // For example, you can concatenate more items to the existing `items` array.
+    if (container) {
+      const newPosition = container.scrollLeft;
+      setScrollPosition(newPosition);
+
+      // 특정 지점에 도달하면 새로운 콘텐츠를 추가합니다.
+      if (newPosition + container.clientWidth >= container.scrollWidth) {
+        addNewContent();
       }
     }
   };
+
+  const addNewContent = () => {
+    // 새로운 콘텐츠를 불러오는 로직을 여기에 구현합니다.
+    // 여기서는 간단한 더미 데이터를 사용합니다.
+    const newContent = Array.from({ length: 4 }, (_, index) => (
+      <div key={content.length + index} className="content-item">
+        <img
+          src={`https://via.placeholder.com/120x120?text=Image${content.length + index + 1}`}
+          alt={`Image ${content.length + index + 1}`}
+        />
+      </div>
+    ));
+
+    // 새로운 데이터를 기존 데이터에 추가합니다.
+    setContent([...content, ...newContent]);
+  };
+
 
 
   return (

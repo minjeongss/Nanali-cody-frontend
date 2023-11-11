@@ -1,0 +1,26 @@
+/* styles.css */
+.container {
+    width: 345px;
+    height: 508px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 11px;
+}
+
+.image {
+    width: 167px;
+    /* 이미지 간 간격의 반만큼 제외합니다. */
+    height: 162px;
+    border-radius: 25px;
+}
+
+.image:last-child {
+    margin-bottom: 0;
+    /* 마지막 이미지에는 아래쪽 마진을 적용하지 않습니다. */
+}

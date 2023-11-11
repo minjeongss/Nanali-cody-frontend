@@ -2,14 +2,6 @@
     height: 160px;
     width:382px;
     margin-top: 19px;
-    overflow-x: hidden;
-    /* 수평 스크롤바를 감춥니다 */
-    touch-action: pan-y;
-    /* 드래그 동작이 수평으로만 일어나도록 합니다 */
-    user-select: none;
-    /* 사용자 선택을 막아 드래그를 원할하게 만듭니다 */
-    -webkit-overflow-scrolling: touch;
-    /* iOS에서 스크롤 부드럽게 만듭니다 */
 }
 .clothesType{
     margin-left: 22px;
@@ -18,22 +10,24 @@
     text-align: left;
 }
 .clothesList{
-    display: flex;
-    transition: transform 0.3s ease;
-        /* 드래그 애니메이션을 부드럽게 만듭니다 */
     height: 120px;
     width: 382px;
+    display: inline-flex;
+    overflow-x: scroll;
+    overflow-y: hidden;
 }
 .list-item{
     margin-right: 8px;
         /* 이미지 간격을 설정합니다 */
-    display: inline-block;
-    border-radius: 25px;
     width: 120px;
     height: 120px;
-    background-color: blanchedalmond;
+    margin-right: 10px;
 }
-
+.list-item img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+}
 ::-webkit-scrollbar {
     display: none;
 }

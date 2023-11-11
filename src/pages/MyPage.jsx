@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import '../styles/MyPage.css';
 import { Link } from "react-router-dom";
 import Nav from '../components/Nav';
+import axios from 'axios'
+import HSwiper from '../components/HorizontalSwiper';
+import VSwiper from '../components/VerticalSwiper';
 
 function MyPage() {
     const [nickname, setNickname] = useState('');
@@ -28,6 +31,28 @@ function MyPage() {
         setNickname(dummyData.nickname);
         setEmail(dummyData.email);
     };
+    const exampleClothes = [
+  { imageSrc: 'image1.jpg', title: 'Item 1' },
+  { imageSrc: 'image2.jpg', title: 'Item 2' },
+  { imageSrc: 'image3.jpg', title: 'Item 3' },
+  { imageSrc: 'image1.jpg', title: 'Item 1' },
+  { imageSrc: 'image2.jpg', title: 'Item 2' },
+  { imageSrc: 'image3.jpg', title: 'Item 3' },
+  
+  // 더 많은 의류 항목을 추가할 수 있습니다.
+];
+    const top = {
+            name: "상의", 
+        };
+        const pants = {
+            name: "하의", 
+        };
+        const outer = {
+            name: "아우터", 
+        };
+        const shoes = {
+            name: "신발", 
+        };
     const handleTabClick = (tab) => {
         setActiveTab(tab);
     };
@@ -49,20 +74,28 @@ function MyPage() {
                     <div className={`coorditabbutton ${activeTab === 'coordi' ? 'active' : ''}`}
                         onClick={() => handleTabClick('coordi')}
                     >
-                        <img src={`${process.env.PUBLIC_URL}/assets/coordi.svg`} alt="Preference" />
+                        <img src={`${process.env.PUBLIC_URL}/assets/${activeTab === 'coordi' ? 'coordi' : 'coordi_unclicked'}.svg`} alt="Preference" />
                     </div>
                     <div className='v-line'></div>
                     <div className={`clothingtabbutton ${activeTab === 'clothing' ? 'active' : ''}`}
                         onClick={() => handleTabClick('clothing')}
                     >
-                        <img src={`${process.env.PUBLIC_URL}/assets/clothing.svg`} alt="Preference" />
+                        <img src={`${process.env.PUBLIC_URL}/assets/${activeTab === 'clothing' ? 'clothing' : 'clothing_unclicked'}.svg`} alt="Preference" />
                     </div> 
                 </div>
-            </div>
-             <div className='tabcontent'>
-                {/* Render content based on active tab */}
-                {activeTab === 'coordi' && <div>Content for Coordi Tab</div>}
-                {activeTab === 'clothing' && <div>Content for Clothing Tab</div>}
+                 <div className='tabcontent'>
+                {activeTab === 'coordi' && <div className="coorditab">
+                    <div className="coordiparagraph">내가 찜한 코디</div>
+                    <VSwiper></VSwiper>
+                    </div>}
+                {activeTab === 'clothing' && <div className="clothingtab">
+                    <div className="clothingparagraph">내가 찜한 상품</div>
+                    <HSwiper className="Swiper_5" items={exampleClothes} type={top} visibleItems={4}/>
+                    <HSwiper className="Swiper_6" items={exampleClothes} type={pants} visibleItems={4}/>
+                    <HSwiper className="Swiper_7" items={exampleClothes} type={outer} visibleItems={4}/>
+                    <HSwiper className="Swiper_8" items={exampleClothes} type={shoes} visibleItems={4}/>
+                    </div>}
+                </div>
             </div>
             <Nav />
         </div>
