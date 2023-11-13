@@ -12,7 +12,10 @@ div{
     height: 100px;
 }
 .wrapLong{
-    height:200px;
+    height:250px;
+}
+.wrapLongLong{
+    height:300px;
 }
 .top{
     display: flex;

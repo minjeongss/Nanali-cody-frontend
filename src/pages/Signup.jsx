@@ -104,21 +104,21 @@ export default function Signup() {
                 <div>이메일</div>
                 <input type="email" placeholder='이메일을 입력해주세요.' onChange={handleEmail}/>
             </div>
-            <div className={isClickedAge?`styles.wrapLong`:`styles.wrap`}>
+            <div className={isClickedAge?`${styles.wrapLong}`:`${styles.wrap}`}>
                 <div>나이</div>
                 <button className={styles.button} onClick={handleAge}>
                     {age===""?<> 나이를 선택해주세요. <AiFillCaretDown className={styles.icon} /></>:age}
                 </button>
                 <div>{isClickedAge && <ShowList type="age" getTextValue={getTextValue}/>}</div>
             </div>
-            <div className={styles.wrap}>
+            <div className={isClickedSex?`${styles.wrapLong}`:`${styles.wrap}`}>
                 <div>성별</div>
                 <button className={styles.button} onClick={handleGender}>
                     {gender===""?<> 성별을 선택해주세요. <AiFillCaretDown className={styles.icon} /></> :gender}
                 </button>
                 <div>{isClickedSex && <ShowList type="sex" getTextValue={getTextValue}/>}</div>
             </div>
-            <div className={styles.wrap}>
+            <div className={isClickedStyle?`${styles.wrapLongLong}`:`${styles.wrap}`}>
                 <div>스타일</div>
                 <button className={styles.button} onClick={handleStyle}>
                     {style===""?<> 스타일을 선택해주세요. <AiFillCaretDown className={styles.icon} /></>:style}
