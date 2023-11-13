@@ -43,6 +43,12 @@
     font-size: 14px;
     color:#9A9A9A;
 }
+.coorditab{
+    display:flex;
+    text-align: left;
+    align-items: center;
+    flex-direction: column;
+}
 .coordibox{
     border-radius: 40px;
     position: absolute;
@@ -70,4 +76,33 @@
 }
 .clothingtabbutton{
     margin-left: 68px;
+    cursor:pointer;
 }
+.coorditabbutton {
+    cursor: pointer;
+}
+.tabcontent{
+    margin-top: 60px;
+}
+.coordiparagraph{
+    white-space: nowrap;
+    text-align: left;
+    width: 99px;
+    height: 26px;
+    z-index: 5;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 22px;
+    margin-left: 32px;
+    margin-right: 262px;
+}
+.clothingparagraph{
+    white-space: nowrap;
+    z-index: 5;
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 33px;
+        margin-left: 32px;
+        margin-right: 262px;
+}
+

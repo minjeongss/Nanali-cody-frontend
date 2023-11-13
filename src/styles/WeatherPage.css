@@ -2,7 +2,6 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    justify-content: center;
     background: linear-gradient(180deg, #BAE6FF 0%, rgba(209, 235, 247, 0.7) 41.98%, rgba(171, 230, 255, 0.3) 100%);
     width: 393px;
     height: 852px;
@@ -12,7 +11,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 72px;
+   margin-top: 72px;
     width:286px;
     height: 87px;
 }
