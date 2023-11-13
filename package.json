@@ -12,8 +12,10 @@
     "react-icons": "^4.11.0",
     "react-router-dom": "^6.18.0",
     "react-scripts": "5.0.1",
+    "swiper": "^11.0.4",
     "web-vitals": "^2.1.0"
   },
+  "proxy": "http://3.37.139.209:8080/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

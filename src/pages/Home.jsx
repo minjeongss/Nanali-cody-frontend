@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from '../styles/Home.module.css';
 import {IoIosArrowForward} from 'react-icons/io';
 import Nav from '../components/Nav';
@@ -13,6 +13,18 @@ export default function Home() {
     const [isDay,setIsDay]=useState(true);
     const [isRainy,setIsRainy]=useState(false);
     const [rainPercent,setRainPercent]=useState(0);
+
+    // useEffect(()=>{
+    //     fetch('/api/outfit',{
+    //         method:'GET',
+    //         body:JSON.stringify({
+
+    //         }),
+    //     })
+    //         .then(response=>response.json())
+    //         .then()
+    // },[]);
+    
     const PrintUmbrella=()=>{
         if(rainPercent===100){
             return <img src={`${process.env.PUBLIC_URL}/assets/umbrella.svg`} alt="" />;

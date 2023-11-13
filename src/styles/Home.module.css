@@ -35,7 +35,7 @@
     font-size: 50px;
     background-clip: text;
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color: transparent; /*transparent면 배경화면으로 잡히고, 안넣으면 안되고!!*/
 }
 .locationDay{
     color:var(--color-darkblue);

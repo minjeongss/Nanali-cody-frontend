@@ -10,11 +10,13 @@ export default function Signup() {
     const [password,setPassword]=useState('');
     const [nickname,setNickname]=useState('');
     const [email,setEmail]=useState('');
-    const [age,setAge]=useState();
-    const [gender,setgender]=useState();
-    const [style,setStyle]=useState();
+    const [age,setAge]=useState('');
+    const [gender,setgender]=useState('');
+    const [style,setStyle]=useState('');
 
     const [isClickedAge,setIsClickedAge]=useState(false);
+    const [isClickedStyle,setIsClickedStyle]=useState(false);
+    const [isClickedSex,setIsClickedSex]=useState(false);
     const list=[
         /^[a-zA-z0-9]{4,12}$/, //id
         /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/, //password
@@ -45,14 +47,25 @@ export default function Signup() {
     const handleAge=()=>{
         setIsClickedAge(true);
     }
-    const handleGneder=()=>{
-
+    const handleGender=()=>{
+        setIsClickedSex(true);
     }
     const handleStyle=()=>{
-
+        setIsClickedStyle(true);
     }
-    const PrintAge=()=>{
-        return <ShowList />
+    const getTextValue=(item,type)=>{
+        if(type==="age"){
+            setIsClickedAge(false);
+            setAge(item);
+        }
+        else if(type==="sex"){
+            setIsClickedSex(false);
+            setgender(item);
+        }
+        else if(type==="style"){
+            setIsClickedStyle(false);
+            setStyle(item);
+        }
     }
     const handleSubmit=(e)=>{
         e.preventDefault();
@@ -94,24 +107,23 @@ export default function Signup() {
             <div className={isClickedAge?`styles.wrapLong`:`styles.wrap`}>
                 <div>나이</div>
                 <button className={styles.button} onClick={handleAge}>
-                    나이를 선택해주세요.
-                    <AiFillCaretDown className={styles.icon}/>
+                    {age===""?<> 나이를 선택해주세요. <AiFillCaretDown className={styles.icon} /></>:age}
                 </button>
-                <div>{isClickedAge && PrintAge()}</div>
+                <div>{isClickedAge && <ShowList type="age" getTextValue={getTextValue}/>}</div>
             </div>
             <div className={styles.wrap}>
                 <div>성별</div>
-                <button className={styles.button} onClick={handleGneder}>
-                    성별을 입력해주세요.
-                    <AiFillCaretDown className={styles.icon}/>
+                <button className={styles.button} onClick={handleGender}>
+                    {gender===""?<> 성별을 선택해주세요. <AiFillCaretDown className={styles.icon} /></> :gender}
                 </button>
+                <div>{isClickedSex && <ShowList type="sex" getTextValue={getTextValue}/>}</div>
             </div>
             <div className={styles.wrap}>
                 <div>스타일</div>
                 <button className={styles.button} onClick={handleStyle}>
-                    스타일을 선택해주세요.
-                    <AiFillCaretDown className={styles.icon2}/>
+                    {style===""?<> 스타일을 선택해주세요. <AiFillCaretDown className={styles.icon} /></>:style}
                 </button>
+                <div>{isClickedStyle && <ShowList type="style" getTextValue={getTextValue}/>}</div>
             </div>
             <div className={styles.wrap}>
                 <button type='submit' onClick={handleSubmit}>확인</button>
