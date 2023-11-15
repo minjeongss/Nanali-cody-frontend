@@ -22,6 +22,7 @@
     height: 152px;
     border-radius: 50%;
     box-shadow: 4px 4px 4px rgba(103, 160, 205, 0.1);
+    margin-bottom: 10px;
 }
 .profile{
     position: absolute;
@@ -35,11 +36,11 @@
     z-index: 3;
 }
 .nickname{
-    font-weight: 600px;
+    font-weight: 600;
     font-size:24px;
 }
 .email{
-    font-weight: 400px;
+    font-weight: 400;
     font-size: 14px;
     color:#9A9A9A;
 }
@@ -61,6 +62,7 @@
     z-index: 0;
 }
 .selector{
+    margin-top: 25px;
     margin-left: 82px;
     display: flex;
     align-items: center;
@@ -99,10 +101,11 @@
 .clothingparagraph{
     white-space: nowrap;
     z-index: 5;
-        font-size: 18px;
-        font-weight: 600;
-        margin-bottom: 33px;
-        margin-left: 32px;
-        margin-right: 262px;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 33px;
+    margin-left: 32px;
+    margin-right: 262px;
 }
+
 

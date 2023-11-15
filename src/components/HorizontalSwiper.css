@@ -1,33 +1,43 @@
-.horizontalSwiper{
-    height: 160px;
-    width:382px;
-    margin-top: 19px;
+* {
+    box-sizing: border-box;
+    background-color: transparent;
 }
-.clothesType{
-    margin-left: 22px;
-    font-size: 18;
-    font-weight: 600;
-    text-align: left;
-}
-.clothesList{
+
+.App {
+    text-align: center;
+    width: 383px;
     height: 120px;
-    width: 382px;
-    display: inline-flex;
-    overflow-x: scroll;
-    overflow-y: hidden;
 }
-.list-item{
-    margin-right: 8px;
-        /* 이미지 간격을 설정합니다 */
+
+.menu-item {
+    margin-right: 11px;
+    border-radius: 20px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
     width: 120px;
     height: 120px;
-    margin-right: 10px;
+    user-select: none;
+    cursor: pointer;
+    border: 1px solid black;
 }
-.list-item img {
-    width: 120px;
-    height: 120px;
-    object-fit: cover;
+
+.menu-item-wrapper {}
+
+.menu-item-wrapper.active {
+    font-style: red;
 }
-::-webkit-scrollbar {
-    display: none;
+
+.menu-item.active {
+    color: red;
+}
+
+.scroll-menu-arrow {
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.scroll-menu-arrow--disabled {
+    visibility: hidden;
 }

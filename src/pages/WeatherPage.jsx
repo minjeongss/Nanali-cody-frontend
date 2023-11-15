@@ -16,18 +16,21 @@ const exampleClothes = [
   // 더 많은 의류 항목을 추가할 수 있습니다.
 ];
 function Weather(){
-
     const [uvLevel, setUvLevel] = useState(null);
     const [precipitation, setPrecipitation] = useState(null);
     const [temperature, setTemperature] = useState(null);
   
     useEffect(() => {
     // API에서 날씨 데이터 가져오기
-    axios.get('https://api.example.com/weather')
+    axios.get("http://3.37.139.209:8080/api/outfit",
+    {params: {Style: "MINIMAL",
+   Sex: "MAN" }} 
+      
+    )
       .then(response => {
         // API에서 받아온 데이터를 상태로 업데이트
-        setUvLevel(response.data.uvLevel);
-        setPrecipitation(response.data.precipitation);
+        setUvLevel(response.data.style);
+        setPrecipitation(response.data.sex);
         setTemperature(response.data.temperature);
         
       })
@@ -85,14 +88,13 @@ function Weather(){
                       )}
                         <div style={style}>기온</div>
                     </div>
-        
                 </div>
-                <div className="weatherparagraph">멘트</div>
+                <div className="weatherparagraph">원하는 날씨에 맞는 옷을 추천드려요!</div>
                 <div className="clothesbox">
-                    <HSwiper className="Swiper_1" items={exampleClothes} type={top} visibleItems={4}/>
-                    <HSwiper className="Swiper_2" items={exampleClothes} type={pants} visibleItems={4} />
-                    <HSwiper className="Swiper_3" items={exampleClothes} type={outer} visibleItems={4}/>
-                    <HSwiper className="Swiper_4" items={exampleClothes} type={shoes} visibleItems={4} />
+                    <HSwiper className="Swiper_1"/>
+                    <HSwiper className="Swiper_2"/>
+                    <HSwiper className="Swiper_3"/>
+                    <HSwiper className="Swiper_4"/>
                 </div>
                 <Nav/>
             </div>

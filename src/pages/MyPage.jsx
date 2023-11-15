@@ -24,7 +24,7 @@ function MyPage() {
         // 실제 API 호출 코드를 여기에 작성해야 합니다.
         const dummyData = {
             nickname: '인하님',
-            email: 'johndoe@example.com',
+            email: 'inha@gmail.com',
         };
 
         // 가져온 정보를 상태 변수에 설정
