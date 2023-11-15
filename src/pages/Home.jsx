@@ -10,7 +10,7 @@ export default function Home() {
     //     {}
     // ]);
     // const dateList=calendar.map((list)=><div></div>);
-    const [isDay,setIsDay]=useState(true);
+    const [isDay,setIsDay]=useState(false);
     const [isRainy,setIsRainy]=useState(false);
     const [rainPercent,setRainPercent]=useState(0);
 
@@ -38,14 +38,17 @@ export default function Home() {
         }
         return null;
     }
+    const handleRandom=()=>{
+
+    }
     return (
         // styles.body ${controlBackground?'day':'night'}
         <div className={isDay?`${styles.bodyDay}`:`${styles.bodyNight}`}>
             <div className={styles.top}>
                 <div className={styles.topLeft}>
                     <div className={styles.date}>10월 18일 수요일</div>
-                    <div className={styles.temperature}>23°</div>
-                    <div className={isDay?`${styles.locationDay}`:`${styles.location}`}><button className={styles.buttonImgSmall}><img src={`${process.env.PUBLIC_URL}/assets/location.svg`} alt="" /></button>인천, 대한민국</div>
+                    <div className={isDay?`${styles.temperatureDay}`:`${styles.temperatureNight}`}>11°</div>
+                    <div className={isDay?`${styles.locationDay}`:`${styles.locationNight}`}><button className={styles.buttonImgSmall}><img src={`${process.env.PUBLIC_URL}/assets/location.svg`} alt="" /></button>인천, 대한민국</div>
                     <div className={styles.rainyPercent}>강수확률2% {PrintUmbrella()}</div>
                 </div>
                 <div>{PrintWeather()}</div>
@@ -58,7 +61,7 @@ export default function Home() {
                 </div>
                 <div className={styles.centerContent}>
                     <div>오늘은 이 옷 어때요?</div>
-                        <img className={styles.imgCenterTitle} src={`${process.env.PUBLIC_URL}/assets/reset.svg`} alt="" />
+                        <img onClick={handleRandom} className={styles.imgCenterTitle} src={`${process.env.PUBLIC_URL}/assets/reset.svg`} alt="" />
                     <Link to="/detail">
                         <img src={`${process.env.PUBLIC_URL}/assets/clothes.svg`} alt="" />
                     </Link>
@@ -66,7 +69,7 @@ export default function Home() {
                 </div>
             </div>
             <div className={styles.bottom}>
-                <div className={styles.bottomTitle}>
+                <div className={isDay?`${styles.bottomTitleDay}`:`${styles.bottomTitleNight}`}>
                     <div>Today</div>
                     <IoIosArrowForward />
                 </div>
