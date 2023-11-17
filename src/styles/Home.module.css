@@ -117,3 +117,8 @@
     margin-bottom: 10px;
     color:var(--color-white);
 }
+.swipe{
+    display: flex;
+    flex-direction: row;
+    gap:10px;
+}

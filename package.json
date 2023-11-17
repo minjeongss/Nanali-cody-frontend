@@ -22,7 +22,7 @@
     "swiper": "^11.0.4",
     "web-vitals": "^2.1.0"
   },
-  "proxy": "http://3.37.139.209:8080/",
+  "proxy": "http://3.37.139.209:5000/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

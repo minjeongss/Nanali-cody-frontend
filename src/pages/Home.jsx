@@ -4,26 +4,31 @@ import {IoIosArrowForward} from 'react-icons/io';
 import Nav from '../components/Nav';
 import SwiperWeather from '../components/SwiperWeather';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 export default function Home() {
+    const [data,setData]=useState(null);
     // const [calendar,setCalendar]=useState([
     //     {}
     // ]);
     // const dateList=calendar.map((list)=><div></div>);
     const [isDay,setIsDay]=useState(false);
     const [isRainy,setIsRainy]=useState(false);
-    const [rainPercent,setRainPercent]=useState(0);
+    const [rainPercent,setRainPercent]=useState(100);
+    const [weather,setWeather]=useState("cloud");
+    const [uv,setUv]=useState(2);
 
-    // useEffect(()=>{
-    //     fetch('/api/outfit',{
-    //         method:'GET',
-    //         body:JSON.stringify({
-
-    //         }),
-    //     })
-    //         .then(response=>response.json())
-    //         .then()
-    // },[]);
+    useEffect(()=>{
+        axios.get(`/api/outfit`)
+        .then((response)=>{ //실제 구동
+            //setData(response.data)
+            //console.log(response)
+            alert(response);
+        })
+        .catch((error)=>{ //error처리
+            console.log(error)
+        })
+    },[])
     
     const PrintUmbrella=()=>{
         if(rainPercent===100){
@@ -31,18 +36,25 @@ export default function Home() {
         }
         return null;
     }
-    const [weather,setWeather]=useState("cloud");
     const PrintWeather=()=>{
-        if(weather==="cloud"){
+        if(uv<=0){
            return <img className={styles.imgWeather} src={`${process.env.PUBLIC_URL}/assets/cloud.svg`} alt="" />;
+        }
+        else if(uv<=1){
+            return <img className={styles.imgWeather} src={`${process.env.PUBLIC_URL}/assets/sunnycloud.svg`} alt="" />;
+        }
+        else if(uv<=2){ 
+            return <img className={styles.imgWeather} src={`${process.env.PUBLIC_URL}/assets/sunny.svg`} alt="" />;
         }
         return null;
     }
     const handleRandom=()=>{
 
     }
+    const handleButtonSex=()=>{
+        
+    }
     return (
-        // styles.body ${controlBackground?'day':'night'}
         <div className={isDay?`${styles.bodyDay}`:`${styles.bodyNight}`}>
             <div className={styles.top}>
                 <div className={styles.topLeft}>
@@ -61,7 +73,7 @@ export default function Home() {
                 </div>
                 <div className={styles.centerContent}>
                     <div>오늘은 이 옷 어때요?</div>
-                        <img onClick={handleRandom} className={styles.imgCenterTitle} src={`${process.env.PUBLIC_URL}/assets/reset.svg`} alt="" />
+                        <img onClick={handleRandom} className={styles.imgCenterTitle} src={isDay?`${process.env.PUBLIC_URL}/assets/reset.svg`:`${process.env.PUBLIC_URL}/assets/resetDark.svg`} alt="" />
                     <Link to="/detail">
                         <img src={`${process.env.PUBLIC_URL}/assets/clothes.svg`} alt="" />
                     </Link>
@@ -73,10 +85,18 @@ export default function Home() {
                     <div>Today</div>
                     <IoIosArrowForward />
                 </div>
-                <div>
+            </div>
+            <div className={styles.swipe}>
+                    <SwiperWeather />
+                    <SwiperWeather />
+                    <SwiperWeather />
+                    <SwiperWeather />
+                    <SwiperWeather />
+                    <SwiperWeather />
+                    <SwiperWeather />
+                    <SwiperWeather />
                     <SwiperWeather />
                 </div>
-            </div>
             <Nav/>
         </div>
     );
