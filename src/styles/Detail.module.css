@@ -38,6 +38,7 @@
 .wrapBottom{
     display: flex;
     flex-direction: row;
+    gap:10px;
 }
 .bottom{
     background-color: var(--color-lightgrey);
@@ -59,4 +60,6 @@
     position: absolute;
     right: 10px;
     top: 10px;
+    width: 22px;
+    height: 22px;
 }
