@@ -120,12 +120,12 @@ export default function Home() {
             <div className={styles.swipe}>
                     {/* <SwiperWeather time={data.weather}/> */}
                     <div className={styles.box}>
-                        <div>{(time[0]+"").substring(11,18)}</div> {/*11부터 시간 시작*/}
+                        <div>{(time[2]+"").substring(11,18)}</div> {/*11부터 시간 시작*/}
                         <img className={styles.weather} src={`${process.env.PUBLIC_URL}/assets/cloud.svg`} alt="" />
                         <div>{5}°</div>
                     </div>
                     <div className={styles.box}>
-                        <div>{(time[1]+"").substring(11,18)}</div> 
+                        <div>{(time[0]+"").substring(11,18)}</div> 
                         <img className={styles.weather} src={`${process.env.PUBLIC_URL}/assets/sunny.svg`} alt="" />
                         <div>{6}°</div>
                     </div>
