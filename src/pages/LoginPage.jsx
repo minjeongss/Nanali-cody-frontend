@@ -8,13 +8,13 @@ import axios from 'axios';
 function Login() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const [id, setid] = useState('');
+    const [loginId, setLoginId] = useState('');
     const [password, setPassword] = useState('');
   
     const handleLogin = (event) => {
       event.preventDefault();
       // 로그인 로직을 여기에 작성하세요.
-      if (!id) {
+      if (!loginId) {
         return alert("ID를 입력하세요.");
       }
       else if (!password) {
@@ -22,7 +22,7 @@ function Login() {
       }
        else {
             const body = {
-              id,
+              loginId,
               password
             };
             dispatch(loginUser(body)).then((res) => {
@@ -54,7 +54,7 @@ function Login() {
         <div className="findId" onClick={handleFindId}>아이디 / 비밀번호 찾기</div>
       
         <form onSubmit={handleLogin} className="form">
-          <input type="id" value={id} onChange={(e) => setid(e.target.value)} placeholder="아이디" />
+          <input type="id" value={loginId} onChange={(e) => setLoginId(e.target.value)} placeholder="아이디" />
           <input id ="pwd"type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="비밀번호" />
           <button type="login">로그인</button>
           <Link to ="/signup"style={{ textDecoration: "none" }}>

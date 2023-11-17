@@ -72,7 +72,6 @@ function Weather(){
   BOTH: "BOTH",
 };
   const fetchData = async () => {
-    
     try {
       const response = await axios.get('http://3.37.139.209:8080/api/garment', {
         params: {
