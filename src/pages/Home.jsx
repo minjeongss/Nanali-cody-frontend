@@ -20,6 +20,7 @@ export default function Home() {
     const [clothUrl,setClothUrl]=useState();
     const [body,setBody]=useState();
     const [time,setTime]=useState([]);
+    const [sliceTime,setSliceTime]=useState(["","",""]);
     const [tem,setTem]=useState();
 
     const fetchData=()=>{
@@ -28,8 +29,10 @@ export default function Home() {
             setData(response.data);
             setClothUrl(response.data.outfitUrl);
             setBody(response.data.weather.body);
-            setTime(Object.keys(body));
-            setTem(response.data.weather.body.get([Object.keys(body)[0]]));
+            setTime(Object.keys(response.data.weather.body));
+            setTem(response.data.weather.body.time.temperature);
+            setSliceTime(time[0],time[1],time[2]);
+            console.log(tem);
         })
         .catch((error)=>{ //error처리
             console.log(error)
@@ -97,12 +100,20 @@ export default function Home() {
             <div className={styles.swipe}>
                     {/* <SwiperWeather time={data.weather}/> */}
                     <div className={styles.box}>
-                        <div>{time[0]}</div> {/*11부터 시간 시작*/}
+                        <div>{(time[0]+"").substring(11,18)}</div> {/*11부터 시간 시작*/}
                         <img className={styles.weather} src={`${process.env.PUBLIC_URL}/assets/cloud.svg`} alt="" />
-                        <div>{tem}</div>
+                        <div>{5}°</div>
                     </div>
-                    <SwiperWeather />
-                    <SwiperWeather />
+                    <div className={styles.box}>
+                        <div>{(time[1]+"").substring(11,18)}</div> 
+                        <img className={styles.weather} src={`${process.env.PUBLIC_URL}/assets/sunny.svg`} alt="" />
+                        <div>{6}°</div>
+                    </div>
+                    <div className={styles.box}>
+                        <div>{(time[21]+"").substring(11,18)}</div> 
+                        <img className={styles.weather} src={`${process.env.PUBLIC_URL}/assets/sunnycloud.svg`} alt="" />
+                        <div>{10}°</div>
+                    </div>
                 </div>
             <Nav/>
         </div>
