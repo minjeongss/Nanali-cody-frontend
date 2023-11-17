@@ -22,9 +22,10 @@ export default function Home() {
     const [time,setTime]=useState([]);
     const [sliceTime,setSliceTime]=useState(["","",""]);
     const [tem,setTem]=useState();
-
+    const [sex,setSex]=useState("MAN");
+    const [style,setStyle]=useState("DANDY");
     const fetchData=()=>{
-        axios.get(`http://3.37.139.209:8080/api/outfit?style=DANDY&sex=MAN&time=2023-11-18T10:07:00`)
+        axios.get(`http://3.37.139.209:8080/api/outfit?style=${style}&sex=${sex}&time=2023-11-18T10:07:00`)
         .then((response)=>{ //실제 구동
             setData(response.data);
             setClothUrl(response.data.outfitUrl);
@@ -64,7 +65,21 @@ export default function Home() {
         fetchData();
     }
     const handleButtonSex=()=>{
-        
+        var input="";
+        input=prompt("남성 또는 여성을 입력해주세요.");
+        if(input==="남성"){setSex("MAN");}
+        else if(input==="여성"){setSex("WOMAN");}
+        fetchData();
+    }
+    const handleButtonStyle=()=>{
+        var input="";
+        input=prompt("댄디, 캐주얼, 포멀, 시크, 스트리트 중 원하는 스타일을 입력해주세요.");
+        if(input==="댄디"){setStyle("DANDY");}
+        else if(input==="캐주얼"){setStyle("CASUAL");}
+        else if(input==="포멀"){setStyle("FORMAL");}
+        else if(input==="시크"){setStyle("CHIC");}
+        else if(input==="스트리트"){setStyle("STREET");}
+        fetchData();
     }
     return (
         <div className={isDay?`${styles.bodyDay}`:`${styles.bodyNight}`}>
@@ -79,8 +94,8 @@ export default function Home() {
             </div>
             <div className={styles.center}>
                 <div className={styles.centerButton}>
-                    <button className={styles.buttonSex}>성별</button>
-                    <button className={styles.buttonStyle}>스타일</button>
+                    <button className={styles.buttonSex} onClick={handleButtonSex}>성별</button>
+                    <button className={styles.buttonStyle} onClick={handleButtonStyle}>스타일</button>
                     <button className={styles.buttonImg}><img src={`${process.env.PUBLIC_URL}/assets/calendar.svg`} alt="" /></button>
                 </div>
                 <div className={styles.centerContent}>
