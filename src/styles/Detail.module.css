@@ -35,6 +35,10 @@
     width: 248px;
     height: 218px;
 }
+.wrapBottom{
+    display: flex;
+    flex-direction: row;
+}
 .bottom{
     background-color: var(--color-lightgrey);
     border-radius: 20px;
@@ -44,6 +48,9 @@
     display: flex;
     align-items: center;
     position: relative;
+}
+.bottomHidden{
+    display: none;
 }
 .clothesDetail{
     width: 146px;

@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from '../styles/Signup.module.css';
 import {IoIosArrowBack} from 'react-icons/io';
 import {AiFillCaretDown} from 'react-icons/ai';
 import { useNavigate, useParams } from 'react-router-dom';
 import ShowList from '../components/ShowList';
+import axios from 'axios';
 
 export default function Signup() {
     const [id,setId]=useState('');
@@ -25,8 +26,15 @@ export default function Signup() {
     ];
     const navigate=useNavigate();
 
-    //url 값 받아오는 방법::추후에 사용
-    const {params}=useParams();
+    useEffect(()=>{
+        axios.post(`/api/login/validation/id`,{id})
+        .then((response)=>{
+            
+        })
+        .catch((error)=>{
+
+        })
+    },[id])
 
     //함수
     const handleArrow=()=>{
@@ -79,6 +87,12 @@ export default function Signup() {
             navigate(`/`);
         }
     }
+    const handleDupId=()=>{
+        
+    }
+    const handleDupNick=()=>{
+
+    }
     return (
         <div>
             <div className={styles.top}>
@@ -86,7 +100,10 @@ export default function Signup() {
                 <div>회원가입</div>
             </div>
             <div className={styles.wrap}>
-                <div>아이디</div>
+                <div className={styles.wrapTitle}>
+                    <div>아이디</div>
+                    <button className={styles.buttonSmall} onClick={handleDupId}>중복확인</button>
+                </div>
                 <input type="text" placeholder='아이디를 입력해주세요.' onChange={handleId}/>
             </div>
             <div className={styles.wrap}>
@@ -97,7 +114,10 @@ export default function Signup() {
                 <input type="password" placeholder='비밀번호를 입력해주세요.' onChange={handlePassword}/>
             </div>
             <div className={styles.wrap}>
-                <div>닉네임</div>
+                <div className={styles.wrapTitle}>
+                    <div>닉네임</div>
+                    <button className={styles.buttonSmall} onClick={handleDupNick}>중복확인</button>
+                </div>
                 <input type="text" placeholder='닉네임을 입력해주세요.' onChange={handleNickname}/>
             </div>
             <div className={styles.wrap}>
