@@ -61,7 +61,7 @@ function Login() {
               <button type="signup">회원가입하기</button>
           </Link>
           <Link to ="/home"style={{ textDecoration: "none" }}>
-              <div className='nologin' onClick={handleWithoutLogin}>회원가입 없이 둘러보기</div>
+              <div className='nologin' onClick = {handleWithoutLogin}>회원가입 없이 둘러보기</div>
           </Link>
         </form>
       </div>

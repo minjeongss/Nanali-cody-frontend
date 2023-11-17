@@ -6,34 +6,32 @@ import ImageList from '../components/ClothingList';
 
 
  let topImageUrls = [
-'https://via.placeholder.com/300',
-'https://via.placeholder.com/300',
-'https://via.placeholder.com/300',
-'https://via.placeholder.com/300',
-'https://via.placeholder.com/300',
- ];
+    'https://via.placeholder.com/300',
+    'https://via.placeholder.com/300',
+    'https://via.placeholder.com/300',
+    'https://via.placeholder.com/300',
+    'https://via.placeholder.com/300',
+];
   let pantsImageUrls = [
-'https://via.placeholder.com/300',
-'https://via.placeholder.com/300',
-'https://via.placeholder.com/300',
-'https://via.placeholder.com/300',
-'https://via.placeholder.com/300',
-  ];
-   let shoesImageUrls = [
-'https://via.placeholder.com/300',
-'https://via.placeholder.com/300',
-'https://via.placeholder.com/300',
-'https://via.placeholder.com/300',
-'https://via.placeholder.com/300',
-
-  ];
+    'https://via.placeholder.com/300',
+    'https://via.placeholder.com/300',
+    'https://via.placeholder.com/300',
+    'https://via.placeholder.com/300',
+    'https://via.placeholder.com/300',
+];
+  let shoesImageUrls = [
+    'https://via.placeholder.com/300',
+    'https://via.placeholder.com/300',
+    'https://via.placeholder.com/300',
+    'https://via.placeholder.com/300',
+    'https://via.placeholder.com/300',
+];
    let outerImageUrls = [
     'https://via.placeholder.com/300',
     'https://via.placeholder.com/300',
     'https://via.placeholder.com/300',
     'https://via.placeholder.com/300',
     'https://via.placeholder.com/300',
-
   ];
 
 
@@ -76,6 +74,7 @@ function Weather(){
         },
       });
       const data = response.data;
+      console.log(data);
       outerImageUrls = data.outers;
       pantsImageUrls =data.pants;
       shoesImageUrls=data.shoes;
@@ -130,7 +129,7 @@ function Weather(){
                     </div>
                 </div>
                 <div className="weatherparagraph">원하는 날씨에 맞는 옷을 추천드려요!</div>
-                <button className="sexbutton" onClick={handleSexToggle}>{sex === "MAN" ? '남자' : '여자'}</button>
+                <button className="sexbutton" onClick={handleSexToggle}>{sex === "MAN" ? '남성' : '여성'}</button>
                 <div className="clothesbox">
                   <div>
                     <div className="clothestype">상의</div>

@@ -21,9 +21,22 @@
     justify-content: center;
     margin-top: 72px;
     width:286px;
-    height: 87px;
+    height:87px;
 }
-
+.sexbutton{
+    margin-left:24px;
+    margin-right:auto;
+    height: 40px;
+    width: 71px;
+    border-radius: 11px;
+    background-color: #FFFFFF;
+    border-width: 2px;
+    margin-bottom: 8px;
+    border-style : solid;
+    border-color : #1E678F;
+    font-size: 14px;
+    font-weight: 600;
+}
 .sun {
     display: flex;
     flex-direction: column;
@@ -45,8 +58,8 @@
     margin-left: 70px;
 }
 .weatherparagraph{
-    margin-top: 43px;
-    margin-bottom: 42px;
+    margin-top: 29px;
+    margin-bottom: 33px;
     color:#1E678F;
     font-weight: 600px;
 }
@@ -58,7 +71,7 @@
     flex-direction: column;
     align-items: center;
     background-color: white;
-    height: 1100px;
+
     border-radius: 40px;
     width: 393px;
 }
