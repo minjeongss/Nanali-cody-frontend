@@ -8,10 +8,6 @@ import axios from 'axios';
 
 export default function Home() {
     const [data,setData]=useState(null);
-    // const [calendar,setCalendar]=useState([
-    //     {}
-    // ]);
-    // const dateList=calendar.map((list)=><div></div>);
     const [isDay,setIsDay]=useState(true);
     const [isRainy,setIsRainy]=useState(false);
     const [rainPercent,setRainPercent]=useState(10);
@@ -24,8 +20,10 @@ export default function Home() {
     const [tem,setTem]=useState();
     const [sex,setSex]=useState("MAN");
     const [style,setStyle]=useState("DANDY");
+    const [date,setDate]=useState("2023-11-18T10:07:00");
+
     const fetchData=()=>{
-        axios.get(`http://3.37.139.209:8080/api/outfit?style=${style}&sex=${sex}&time=2023-11-18T10:07:00`)
+        axios.get(`http://3.37.139.209:8080/api/outfit?style=${style}&sex=${sex}&time=${date}`)
         .then((response)=>{ //실제 구동
             setData(response.data);
             setClothUrl(response.data.outfitUrl);
@@ -81,6 +79,13 @@ export default function Home() {
         else if(input==="스트리트"){setStyle("STREET");}
         fetchData();
     }
+    const handleButtonDate=()=>{
+        var input="";
+        input=prompt("오늘 또는 내일을 입력해주세요.");
+        if(input==="오늘"){setDate("2023-11-18T10:07:00");}
+        else if(input==="내일"){setDate("2023-11-19T10:07:00");}
+        fetchData();
+    }
     return (
         <div className={isDay?`${styles.bodyDay}`:`${styles.bodyNight}`}>
             <div className={styles.top}>
@@ -96,7 +101,7 @@ export default function Home() {
                 <div className={styles.centerButton}>
                     <button className={styles.buttonSex} onClick={handleButtonSex}>성별</button>
                     <button className={styles.buttonStyle} onClick={handleButtonStyle}>스타일</button>
-                    <button className={styles.buttonImg}><img src={`${process.env.PUBLIC_URL}/assets/calendar.svg`} alt="" /></button>
+                    <button className={styles.buttonImg} onClick={handleButtonDate}><img src={`${process.env.PUBLIC_URL}/assets/calendar.svg`} alt="" /></button>
                 </div>
                 <div className={styles.centerContent}>
                     <div>오늘은 이 옷 어때요?</div>
@@ -125,7 +130,7 @@ export default function Home() {
                         <div>{6}°</div>
                     </div>
                     <div className={styles.box}>
-                        <div>{(time[21]+"").substring(11,18)}</div> 
+                        <div>{(time[20]+"").substring(11,18)}</div> 
                         <img className={styles.weather} src={`${process.env.PUBLIC_URL}/assets/sunnycloud.svg`} alt="" />
                         <div>{10}°</div>
                     </div>
