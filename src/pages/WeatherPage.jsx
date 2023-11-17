@@ -5,41 +5,35 @@ import Nav from '../components/Nav';
 import ImageList from '../components/ClothingList';
 
 
- const topImageUrls = [
-    'https://via.placeholder.com/300',
-    'https://via.placeholder.com/400',
-    'https://via.placeholder.com/500',
-    'https://via.placeholder.com/600',
-    'https://via.placeholder.com/700',
-    'https://via.placeholder.com/800',
-    // ... 더 많은 이미지 URL들
+ let topImageUrls = [
+'https://via.placeholder.com/300',
+'https://via.placeholder.com/300',
+'https://via.placeholder.com/300',
+'https://via.placeholder.com/300',
+'https://via.placeholder.com/300',
+ ];
+  let pantsImageUrls = [
+'https://via.placeholder.com/300',
+'https://via.placeholder.com/300',
+'https://via.placeholder.com/300',
+'https://via.placeholder.com/300',
+'https://via.placeholder.com/300',
   ];
-   const pantsImageUrls = [
-    'https://via.placeholder.com/300',
-    'https://via.placeholder.com/400',
-    'https://via.placeholder.com/500',
-    'https://via.placeholder.com/600',
-    'https://via.placeholder.com/700',
-    'https://via.placeholder.com/800',
-    // ... 더 많은 이미지 URL들
+   let shoesImageUrls = [
+'https://via.placeholder.com/300',
+'https://via.placeholder.com/300',
+'https://via.placeholder.com/300',
+'https://via.placeholder.com/300',
+'https://via.placeholder.com/300',
+
   ];
-   const shoesImageUrls = [
+   let outerImageUrls = [
     'https://via.placeholder.com/300',
-    'https://via.placeholder.com/400',
-    'https://via.placeholder.com/500',
-    'https://via.placeholder.com/600',
-    'https://via.placeholder.com/700',
-    'https://via.placeholder.com/800',
-    // ... 더 많은 이미지 URL들
-  ];
-   const outerImageUrls = [
     'https://via.placeholder.com/300',
-    'https://via.placeholder.com/400',
-    'https://via.placeholder.com/500',
-    'https://via.placeholder.com/600',
-    'https://via.placeholder.com/700',
-    'https://via.placeholder.com/800',
-    // ... 더 많은 이미지 URL들
+    'https://via.placeholder.com/300',
+    'https://via.placeholder.com/300',
+    'https://via.placeholder.com/300',
+
   ];
 
 
@@ -48,9 +42,9 @@ function Weather(){
   const [precipitation, setPrecipitation] = useState('');
   const [temperature, setTemperature] = useState('');
   const [sex, setSex] = useState('');
-
     const handleSexToggle = () => {
     setSex((prevSex) => (prevSex === "MAN" ? "WOMAN" : "MAN"));
+    fetchData();
   };
 
   
@@ -66,7 +60,7 @@ function Weather(){
     }
   };
 
-    const Sex = {
+  const Sex = {
   MAN: "MAN",
   WOMAN: "WOMAN",
   BOTH: "BOTH",
@@ -82,8 +76,10 @@ function Weather(){
         },
       });
       const data = response.data;
-      // Use the received data as needed
-      console.log(data);
+      outerImageUrls = data.outers;
+      pantsImageUrls =data.pants;
+      shoesImageUrls=data.shoes;
+      topImageUrls=data.tops;
     } catch (error) {
       console.error('Error fetching data:', error);
     }
@@ -103,9 +99,10 @@ function Weather(){
                         <img src={`${process.env.PUBLIC_URL}/assets/sun.svg`} alt="" ></img>
                               <input
                                 id="uv"
-                                onChange={(e) => setUvLevel(Number(e.target.value))}
-                                value={Number(uvLevel)}
+                                onChange={(e) => setUvLevel(e.target.value)}
+                                value={uvLevel}
                                 onKeyDown={handleKeyPress}
+                                defaultValue="1"
                               />
                         <div style={style}>자외선지수</div>
                     </div> 
@@ -113,9 +110,10 @@ function Weather(){
                         <img src={`${process.env.PUBLIC_URL}/assets/rain.svg`} alt="" ></img>
                               <input
                                 id="precipitation"
-                                onChange={(e) => setPrecipitation(Number(e.target.value))}
-                                value={Number(precipitation)}
+                                onChange={(e) => setPrecipitation(e.target.value)}
+                                value={precipitation}
                                 onKeyDown={handleKeyPress}
+                                defaultValue="30"
                               />
                         <div style={style}>강수량</div>
                     </div> 
@@ -123,15 +121,16 @@ function Weather(){
                         <img src={`${process.env.PUBLIC_URL}/assets/temparature.svg`} alt="" ></img>
                               <input
                                 id="temperature"
-                                onChange={(e) => setTemperature(Number(e.target.value))}
-                                value={Number(temperature)}
+                                onChange={(e) => setTemperature(e.target.value)}
+                                value={temperature}
                                 onKeyDown={handleKeyPress}
+                                defaultValue="15"
                               />
                         <div style={style}>기온</div>
                     </div>
                 </div>
                 <div className="weatherparagraph">원하는 날씨에 맞는 옷을 추천드려요!</div>
-                      <button onClick={handleSexToggle}>{sex === "MAN" ? '여자' : '남자'}</button>
+                <button className="sexbutton" onClick={handleSexToggle}>{sex === "MAN" ? '남자' : '여자'}</button>
                 <div className="clothesbox">
                   <div>
                     <div className="clothestype">상의</div>

@@ -30,11 +30,11 @@ const ImageList = ({ imageUrls }) => {
 
   return (
     <div>
-      <div style={{ display: 'flex' ,alignItems:'center'}}>
+      <div className = "imglist" style={{ display: 'flex' ,alignItems:'center'}}>
         {selectedImages.map((imageUrl, index) => (
           <img
             key={index}
-            src={imageUrl}
+            src={imageUrl.imgUrl}
             alt={`Image ${index + 1}`}
             style={{ width: '120px', height: '120px', marginRight: '11px', borderRadius:'25px' }}
           />
