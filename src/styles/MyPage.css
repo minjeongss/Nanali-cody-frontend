@@ -5,6 +5,12 @@
     background: linear-gradient(180deg, #BAE6FF 0%, rgba(209, 235, 247, 0.7) 41.98%, rgba(171, 230, 255, 0.3) 100%);
     width: 393px;
     height: 852px;
+    z-index: 1;
+}
+.nav {
+    /* ... other styles ... */
+    z-index: 2;
+    /* Ensure the Nav component is above other elements */
 }
 .preferencebutton{
     margin-top: 44px;
@@ -22,6 +28,7 @@
     height: 152px;
     border-radius: 50%;
     box-shadow: 4px 4px 4px rgba(103, 160, 205, 0.1);
+    margin-bottom: 10px;
 }
 .profile{
     position: absolute;
@@ -35,11 +42,11 @@
     z-index: 3;
 }
 .nickname{
-    font-weight: 600px;
+    font-weight: 600;
     font-size:24px;
 }
 .email{
-    font-weight: 400px;
+    font-weight: 400;
     font-size: 14px;
     color:#9A9A9A;
 }
@@ -48,6 +55,25 @@
     text-align: left;
     align-items: center;
     flex-direction: column;
+    z-index: 0;
+}
+.scrollcontent{
+overflow-y: auto;
+    overflow-x: hidden;
+}
+.scrollcontent::-webkit-scrollbar {
+    display: none;
+}
+.clothingtab{
+    
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 400px;
+    width: 393px;
+}
+.clothingtab::-webkit-scrollbar {
+    display: none;
 }
 .coordibox{
     border-radius: 40px;
@@ -61,6 +87,7 @@
     z-index: 0;
 }
 .selector{
+    margin-top: 25px;
     margin-left: 82px;
     display: flex;
     align-items: center;
@@ -99,10 +126,18 @@
 .clothingparagraph{
     white-space: nowrap;
     z-index: 5;
-        font-size: 18px;
-        font-weight: 600;
-        margin-bottom: 33px;
-        margin-left: 32px;
-        margin-right: 262px;
+    font-size: 18px;
+    font-weight: 600;
+    margin-left: 32px;
+    margin-right: 262px;
 }
+.clothestype{
+    margin-right:auto;
+    margin-left: 24px;
+    margin-top:33px;
+    margin-bottom: 14px;
+    font-weight: 600;
+    font-size: 18px;
+}
+
 

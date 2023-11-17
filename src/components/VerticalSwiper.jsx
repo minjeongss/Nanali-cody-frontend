@@ -1,4 +1,5 @@
 import React, { useState, useEffect,useRef } from 'react';
+import axios from 'axios'; // Import axios for API calls
 import "./VerticalSwiper.css";
 const VerticalSwiper = () => {
   const [images, setImages] = useState([]);

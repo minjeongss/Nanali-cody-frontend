@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import '../styles/MyPage.css';
 import { Link } from "react-router-dom";
 import Nav from '../components/Nav';
-import axios from 'axios'
-import HSwiper from '../components/HorizontalSwiper';
+import axios from 'axios';
+import ImageList from '../components/ClothingList';
 import VSwiper from '../components/VerticalSwiper';
 
 function MyPage() {
@@ -24,35 +24,53 @@ function MyPage() {
         // 실제 API 호출 코드를 여기에 작성해야 합니다.
         const dummyData = {
             nickname: '인하님',
-            email: 'johndoe@example.com',
+            email: 'inha@gmail.com',
         };
 
         // 가져온 정보를 상태 변수에 설정
         setNickname(dummyData.nickname);
         setEmail(dummyData.email);
     };
-    const exampleClothes = [
-  { imageSrc: 'image1.jpg', title: 'Item 1' },
-  { imageSrc: 'image2.jpg', title: 'Item 2' },
-  { imageSrc: 'image3.jpg', title: 'Item 3' },
-  { imageSrc: 'image1.jpg', title: 'Item 1' },
-  { imageSrc: 'image2.jpg', title: 'Item 2' },
-  { imageSrc: 'image3.jpg', title: 'Item 3' },
+   
+
   
-  // 더 많은 의류 항목을 추가할 수 있습니다.
-];
-    const top = {
-            name: "상의", 
-        };
-        const pants = {
-            name: "하의", 
-        };
-        const outer = {
-            name: "아우터", 
-        };
-        const shoes = {
-            name: "신발", 
-        };
+ const likedTopImageUrls = [
+    'https://via.placeholder.com/300',
+    'https://via.placeholder.com/400',
+    'https://via.placeholder.com/500',
+    'https://via.placeholder.com/600',
+    'https://via.placeholder.com/700',
+    'https://via.placeholder.com/800',
+    // ... 더 많은 이미지 URL들
+  ];
+   const likedPantsImageUrls = [
+    'https://via.placeholder.com/300',
+    'https://via.placeholder.com/400',
+    'https://via.placeholder.com/500',
+    'https://via.placeholder.com/600',
+    'https://via.placeholder.com/700',
+    'https://via.placeholder.com/800',
+    // ... 더 많은 이미지 URL들
+  ];
+     const likedShoesImageUrls = [
+    'https://via.placeholder.com/300',
+    'https://via.placeholder.com/400',
+    'https://via.placeholder.com/500',
+    'https://via.placeholder.com/600',
+    'https://via.placeholder.com/700',
+    'https://via.placeholder.com/800',
+    // ... 더 많은 이미지 URL들
+  ];
+       const likedOuterImageUrls = [
+    'https://via.placeholder.com/300',
+    'https://via.placeholder.com/400',
+    'https://via.placeholder.com/500',
+    'https://via.placeholder.com/600',
+    'https://via.placeholder.com/700',
+    'https://via.placeholder.com/800',
+    // ... 더 많은 이미지 URL들
+  ];
+
     const handleTabClick = (tab) => {
         setActiveTab(tab);
     };
@@ -90,10 +108,17 @@ function MyPage() {
                     </div>}
                 {activeTab === 'clothing' && <div className="clothingtab">
                     <div className="clothingparagraph">내가 찜한 상품</div>
-                    <HSwiper className="Swiper_5" items={exampleClothes} type={top} visibleItems={4}/>
-                    <HSwiper className="Swiper_6" items={exampleClothes} type={pants} visibleItems={4}/>
-                    <HSwiper className="Swiper_7" items={exampleClothes} type={outer} visibleItems={4}/>
-                    <HSwiper className="Swiper_8" items={exampleClothes} type={shoes} visibleItems={4}/>
+                        <div className="scrollcontent">
+                            <div className="clothestype">상의</div>
+                            <ImageList className="Swiper_5" imageUrls={likedTopImageUrls}/>
+                            <div className="clothestype">하의</div>
+                            <ImageList className="Swiper_6" imageUrls={likedPantsImageUrls}/>
+                            <div className="clothestype">신발</div>
+                            <ImageList className="Swiper_7" imageUrls={likedShoesImageUrls}/>
+                            <div className="clothestype">아우터</div>
+                            <ImageList className="Swiper_8" imageUrls={likedOuterImageUrls}/>
+                            <div className ="box" style={{ width: '120px', height: '100px'}}/>
+                        </div>
                     </div>}
                 </div>
             </div>

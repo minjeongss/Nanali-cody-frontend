@@ -1,7 +1,7 @@
 /* styles.css */
 .container {
     width: 345px;
-    height: 508px;
+    height: 351px;
     overflow-y: auto;
     overflow-x: hidden;
     
@@ -23,4 +23,7 @@
 .image:last-child {
     margin-bottom: 0;
     /* 마지막 이미지에는 아래쪽 마진을 적용하지 않습니다. */
+}
+.container::-webkit-scrollbar {
+    display: none;
 }
