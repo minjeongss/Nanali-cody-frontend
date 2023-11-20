@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import styles from '../styles/Detail.module.css';
 import {IoIosArrowBack} from 'react-icons/io';
-import { Link } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import axios from 'axios';
 
 export default function Detail() {
-    const [data,setData]=useState(null);
+    const location=useLocation(); //data from Home
     const [like,setLike]=useState(false);
     const [outfitId,setOutFitId]=useState('');
     const [temperature,setTemperature]=useState(20);
@@ -13,11 +13,9 @@ export default function Detail() {
     const [top,setTop]=useState();
     const [bottom,setBottom]=useState();
     const [shoes,setShoes]=useState();
-
     useEffect(()=>{
-        axios.get(`http://3.37.139.209:8080/api/detail/2`)
+        axios.get(`http://3.37.139.209:8080/api/detail/${location.state.outfitId}`)
         .then((response)=>{ //실제 구동
-            setData(response.data);
             setAll(response.data.outfitImg);
             setTop(response.data.outer.imgUrl);
             setBottom(response.data.pants.imgUrl);

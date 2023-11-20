@@ -13,6 +13,7 @@ export default function Home() {
     const [rainPercent,setRainPercent]=useState(10);
     const [weather,setWeather]=useState("cloud");
     const [uv,setUv]=useState(2);
+    const [outfitId,setOutfitId]=useState();
     const [clothUrl,setClothUrl]=useState();
     const [body,setBody]=useState();
     const [time,setTime]=useState([]);
@@ -20,12 +21,13 @@ export default function Home() {
     const [tem,setTem]=useState();
     const [sex,setSex]=useState("MAN");
     const [style,setStyle]=useState("DANDY");
-    const [date,setDate]=useState("2023-11-18T10:07:00");
+    const [date,setDate]=useState("2023-11-20T10:07:00");
 
     const fetchData=()=>{
         axios.get(`http://3.37.139.209:8080/api/outfit?style=${style}&sex=${sex}&time=${date}`)
         .then((response)=>{ //실제 구동
             setData(response.data);
+            setOutfitId(response.data.outfitId);
             setClothUrl(response.data.outfitUrl);
             setBody(response.data.weather.body);
             setTime(Object.keys(response.data.weather.body));
@@ -108,7 +110,7 @@ export default function Home() {
                 <div className={styles.centerContent}>
                     <div>오늘은 이 옷 어때요?</div>
                         <img onClick={handleRandom} className={styles.imgCenterTitle} src={isDay?`${process.env.PUBLIC_URL}/assets/reset.svg`:`${process.env.PUBLIC_URL}/assets/resetDark.svg`} alt="" />
-                    <Link to="/detail">
+                    <Link to={`/detail`} state={{outfitId:outfitId}}> 
                         <img className={styles.clothes} src={clothUrl} alt="" />
                     </Link>
                 </div>
