@@ -21,8 +21,16 @@ export default function Home() {
     const [tem,setTem]=useState();
     const [sex,setSex]=useState("MAN");
     const [style,setStyle]=useState("DANDY");
-    const [date,setDate]=useState("2023-11-20T10:07:00");
-
+    const now=new Date();
+    const todayYear=now.getFullYear();
+    const todayMonth=now.getMonth()+1;
+    const todayDate=now.getDate();
+    const week=['일','월','화','수','목','금','토'];
+    const todayDay=week[now.getDay()];
+    const todayHour=now.getHours();
+    const todayMin=now.getMinutes();
+    const todaySec=now.getSeconds();
+    const [date,setDate]=useState(todayYear+"-"+todayMonth+"-"+todayDate+"T"+todayHour+":"+todayMin+":"+todaySec);
     const fetchData=()=>{
         axios.get(`http://3.37.139.209:8080/api/outfit?style=${style}&sex=${sex}&time=${date}`)
         .then((response)=>{ //실제 구동
@@ -94,10 +102,10 @@ export default function Home() {
         <div className={isDay?`${styles.bodyDay}`:`${styles.bodyNight}`}>
             <div className={styles.top}>
                 <div className={styles.topLeft}>
-                    <div className={styles.date}>11월 18일 토요일</div>
+                    <div className={styles.date}>{todayMonth}월 {todayDate}일 {todayDay}요일</div>
                     <div className={isDay?`${styles.temperatureDay}`:`${styles.temperatureNight}`}>2°</div>
                     <div className={isDay?`${styles.locationDay}`:`${styles.locationNight}`}><button className={styles.buttonImgSmall}><img src={`${process.env.PUBLIC_URL}/assets/location.svg`} alt="" /></button>인천, 대한민국</div>
-                    <div className={styles.rainyPercent}>강수확률2% {PrintUmbrella()}</div>
+                    <div className={styles.rainyPercent}>강수확률2%{PrintUmbrella()}</div>
                 </div>
                 <div>{PrintWeather()}</div>
             </div>
