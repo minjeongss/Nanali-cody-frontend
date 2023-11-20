@@ -32,6 +32,7 @@ export default function Home() {
             setTem(response.data.weather.body.time.temperature);
             setSliceTime(time[0],time[1],time[2]);
             console.log(tem);
+            alert('fetc');
         })
         .catch((error)=>{ //error처리
             console.log(error)
@@ -80,6 +81,7 @@ export default function Home() {
         fetchData();
     }
     const handleButtonDate=()=>{
+        
         var input="";
         input=prompt("오늘 또는 내일을 입력해주세요.");
         if(input==="오늘"){setDate("2023-11-18T10:07:00");}

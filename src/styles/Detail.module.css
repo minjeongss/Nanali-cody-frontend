@@ -33,7 +33,8 @@
 }
 .clothes{
     width: 248px;
-    height: 218px;
+    height: 248px;
+    border-radius: 10px;
 }
 .wrapBottom{
     display: flex;
@@ -55,6 +56,7 @@
 }
 .clothesDetail{
     width: 146px;
+    border-radius: 20px;
 }
 .heart{
     position: absolute;
